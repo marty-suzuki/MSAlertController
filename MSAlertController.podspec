@@ -10,29 +10,15 @@
 Pod::Spec.new do |s|
   s.name             = "MSAlertController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MSAlertController."
-  s.description      = <<-DESC
-                       An optional longer description of MSAlertController
+  s.summary          = "MSAlertController is possible you to use AlertController in iOS7."
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MSAlertController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/szk-atmosphere/MSAlertController"
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MSAlertController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => "v0.1.0" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes'
-  s.resource_bundles = {
-    'MSAlertController' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'MSAlertController/*.{h,m,xib}'
+  s.frameworks = 'UIKit', 'QuartzCore'
 end
