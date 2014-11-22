@@ -3,7 +3,7 @@
 //  MSAlertController
 //
 //  Created by 鈴木 大貴 on 2014/11/14.
-//  Copyright (c) 2014年 Cyberagent. All rights reserved.
+//  Copyright (c) 2014年 Taiki Suzuki. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
