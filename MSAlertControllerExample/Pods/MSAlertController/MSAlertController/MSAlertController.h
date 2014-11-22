@@ -1,0 +1,58 @@
+//
+//  MSAlertController.h
+//  MSAlertController
+//
+//  Created by 鈴木 大貴 on 2014/11/14.
+//  Copyright (c) 2014年 Taiki Suzuki. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger, MSAlertActionStyle) {
+    MSAlertActionStyleDefault = 0,
+    MSAlertActionStyleCancel,
+    MSAlertActionStyleDestructive
+};
+
+typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
+    MSAlertControllerStyleActionSheet = 0,
+    MSAlertControllerStyleAlert
+};
+
+@interface MSAlertAction : NSObject <NSCopying>
+
+@property (copy, nonatomic, readonly) NSString *title;
+@property (assign, nonatomic, readonly) MSAlertActionStyle style;
+@property (assign, nonatomic, getter=isEnabled) BOOL enabled;
+@property (strong, nonatomic) UIColor *titleColor;
+@property (strong, nonatomic) UIFont *font;
+
++ (instancetype)actionWithTitle:(NSString *)title style:(MSAlertActionStyle)style handler:(void (^)(MSAlertAction *action))handler;
+
+@end
+
+
+@interface MSAlertController : UIViewController
+
+@property (copy, nonatomic, readonly) NSArray *actions;
+@property (copy, nonatomic, readonly) NSArray *textFields;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *message;
+@property (assign, nonatomic, readonly) MSAlertControllerStyle preferredStyle;
+@property (strong, nonatomic) UIColor *titleColor;
+@property (strong, nonatomic) UIFont *titleFont;
+@property (strong, nonatomic) UIColor *messageColor;
+@property (strong, nonatomic) UIFont *messageFont;
+@property (assign, nonatomic) BOOL enabledBlurEffect;
+
++ (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(MSAlertControllerStyle)preferredStyle;
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
+- (void)addAction:(MSAlertAction *)action;
+
+@end
+
+@interface MSAlertController()
+
+
+
+@end

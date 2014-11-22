@@ -1,0 +1,10 @@
+PODS:
+  - MSAlertController (0.1.1)
+
+DEPENDENCIES:
+  - MSAlertController
+
+SPEC CHECKSUMS:
+  MSAlertController: 297642670dd6b7fe44df6688be747ea399c654fc
+
+COCOAPODS: 0.34.4
