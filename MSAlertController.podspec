@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/szk-atmosphere/MSAlertController"
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
-  s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => "v0.1.1" }
+  s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => "v0.1.2" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
