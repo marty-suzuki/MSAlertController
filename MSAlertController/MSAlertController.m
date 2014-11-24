@@ -378,6 +378,8 @@ static CGFloat const kTextFieldWidth = 234.0f;
         self.enabledBlurEffect = YES;
         self.backgroundColor = [UIColor grayColor];
         self.alpha = 0.5f;
+        self.alertBackgroundColor = [UIColor whiteColor];
+        self.separatorColor = [UIColor colorWithRed:231.0f/255.0f green:231.0f/255.0f blue:233.0f/255.0f alpha:1.0f];
         
         disabledColor = [UIColor colorWithRed:131.0f/255.0f green:131.0f/255.0f blue:131.0f/255.0f alpha:1.0f];
     }
@@ -402,7 +404,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
     
     self.tableView.layer.cornerRadius = 6.0f;
     self.tableView.layer.masksToBounds = YES;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellReuseIdentifier];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -427,6 +429,8 @@ static CGFloat const kTextFieldWidth = 234.0f;
     } else {
         self.imageView.image = screenshot;
     }
+    
+    self.tableView.separatorColor = self.separatorColor;
     
     self.backgroundView.backgroundColor = self.backgroundColor;
     self.backgroundView.alpha = self.alpha;
@@ -494,7 +498,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
     
     if (self.preferredStyle == MSAlertControllerStyleAlert) {
         CGFloat tableViewHeight = self.actions.count * 44.0f;
-        self.tableViewHeightConstraint.constant = tableViewHeight + headerHeight - 0.5f;
+        self.tableViewHeightConstraint.constant = tableViewHeight + headerHeight - 1.0f;
     } else {
         NSInteger actionCount = self.actions.count;
         MSAlertAction *cancelAction = [self cancelAction];
@@ -505,7 +509,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
         if (cancelAction != nil) {
             self.tableViewBottomSpaceConstraint.constant = 52.0f;
             
-            self.cancelButton = [[UIButton alloc] init];
+            self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
             self.cancelButton.userInteractionEnabled = cancelAction.enabled;
             self.cancelButton.layer.cornerRadius = 6.0f;
             self.cancelButton.layer.masksToBounds = YES;
@@ -553,12 +557,12 @@ static CGFloat const kTextFieldWidth = 234.0f;
                                                                                  constant:8.0f]];
         }
         
-        self.tableViewContainerHeightConstraint.constant = tableViewHeight + headerHeight + self.tableViewBottomSpaceConstraint.constant;
+        self.tableViewContainerHeightConstraint.constant = tableViewHeight + headerHeight + self.tableViewBottomSpaceConstraint.constant - 0.5f;
         self.tableViewContarinerSuperviewConstraint.constant = -self.tableViewContainerHeightConstraint.constant;
     }
     
     UIView *line = [[UIView alloc] init];
-    line.backgroundColor = [UIColor colorWithRed:231.0f/255.0f green:231.0f/255.0f blue:233.0f/255.0f alpha:1.0f];
+    line.backgroundColor = self.separatorColor;
     [self.tableViewHeader addSubview:line];
     
     line.translatesAutoresizingMaskIntoConstraints = NO;
@@ -599,7 +603,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
     [super viewDidLayoutSubviews];
     
     if (self.preferredStyle == MSAlertControllerStyleActionSheet && [self cancelAction] != nil) {
-        UIImage *normalImage = [UIImage imageWithColor:[UIColor whiteColor]];
+        UIImage *normalImage = [UIImage imageWithColor:self.alertBackgroundColor];
         [self.cancelButton setBackgroundImage:normalImage forState:UIControlStateNormal];
         UIImage *highlightedImage = [UIImage imageWithColor:[UIColor colorWithRed:217.0f/255.0f green:217.0f/255.0f blue:217.0f/255.0f alpha:1.0f]];
         [self.cancelButton setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
@@ -752,6 +756,18 @@ static CGFloat const kTextFieldWidth = 234.0f;
         titleLabel.textColor = disabledColor;
     }
     
+    if (action.normalColor) {
+        cell.backgroundColor = action.normalColor;
+    } else {
+        cell.backgroundColor = self.alertBackgroundColor;
+    }
+    
+    if (action.highlightedColor) {
+        UIView *selectedBackgroundView = [[UIView alloc] init];
+        selectedBackgroundView.backgroundColor = action.highlightedColor;
+        cell.selectedBackgroundView = selectedBackgroundView;
+    }
+        
     return cell;
 }
 
@@ -765,6 +781,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    self.tableViewHeader.backgroundColor = self.alertBackgroundColor;
     return self.tableViewHeader;
 }
 
