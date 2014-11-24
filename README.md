@@ -84,6 +84,8 @@ Set ```MSAlertControllerStyleActionSheet``` to preferredStyle.
 @property (strong, nonatomic) UIColor *messageColor;
 @property (strong, nonatomic) UIFont *messageFont;
 @property (assign, nonatomic) BOOL enabledBlurEffect;
+@property (strong, nonatomic) UIColor *backgroundColor;
+@property (assign, nonatomic) CGFloat alpha;
 ```
 
 ![Alert Controller](./Raw/images/alert_controller_custom.png)
