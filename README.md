@@ -86,6 +86,8 @@ Set ```MSAlertControllerStyleActionSheet``` to preferredStyle.
 @property (assign, nonatomic) BOOL enabledBlurEffect;
 @property (strong, nonatomic) UIColor *backgroundColor;
 @property (assign, nonatomic) CGFloat alpha;
+@property (strong, nonatomic) UIColor *alertBackgroundColor;
+@property (strong, nonatomic) UIColor *separatorColor;
 ```
 
 ![Alert Controller](./Raw/images/alert_controller_custom.png)
@@ -103,6 +105,8 @@ alertController.messageFont = [UIFont fontWithName:@"Baskerville-BoldItalic" siz
 ``` objective-c
 @property (strong, nonatomic) UIColor *titleColor;
 @property (strong, nonatomic) UIFont *font;
+@property (strong, nonatomic) UIColor *normalColor;
+@property (strong, nonatomic) UIColor *highlightedColor;
 ```
 
 ![Action](./Raw/images/action_custom.png)
@@ -116,6 +120,42 @@ action.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
 [alertController addAction:action];
 ```
 
+#### Combination
+``` objective-c
+
+    MSAlertController *alertController = [MSAlertController alertControllerWithTitle:@"MSAlertController" message:@"This is MSAlertController." preferredStyle:MSAlertControllerStyleAlert];
+    alertController.alertBackgroundColor = [UIColor lightGrayColor];
+    alertController.backgroundColor = [UIColor blueColor];
+    alertController.alpha = 0.3f;
+    alertController.separatorColor = [UIColor redColor];
+    
+    MSAlertAction *action = [MSAlertAction actionWithTitle:@"Cancel" style:MSAlertActionStyleCancel handler:^(MSAlertAction *action) {
+        NSLog(@"Cancel action tapped %@", action);
+    }];
+    action.normalColor = [UIColor blackColor];
+    action.highlightedColor = [UIColor yellowColor];
+    [alertController addAction:action];
+    
+    MSAlertAction *action2 = [MSAlertAction actionWithTitle:@"Destructive" style:MSAlertActionStyleDestructive handler:^(MSAlertAction *action) {
+        NSLog(@"Destructive action tapped %@", action);
+    }];
+    [alertController addAction:action2];
+
+    MSAlertAction *action3 = [MSAlertAction actionWithTitle:@"Default" style:MSAlertActionStyleDefault handler:^(MSAlertAction *action) {
+        NSLog(@"Default action tapped %@", action);
+    }];
+    action3.normalColor = [UIColor darkGrayColor];
+    action3.highlightedColor = [UIColor whiteColor];
+    [alertController addAction:action3];
+    
+    [alertController addTextFieldWithConfigurationHandler:nil];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+```
+
+![Action](./Raw/images/combination.png)
+
+Action Sheet is compatible with same customization.
 
 ## Requirements
 - iOS 7.0 and greater
