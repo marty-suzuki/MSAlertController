@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MSAlertController"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "MSAlertController is possible you to use AlertController in iOS7."
 
   s.homepage         = "https://github.com/szk-atmosphere/MSAlertController"
