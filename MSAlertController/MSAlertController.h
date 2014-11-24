@@ -52,9 +52,3 @@ typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
 - (void)addAction:(MSAlertAction *)action;
 
 @end
-
-@interface MSAlertController()
-
-
-
-@end
