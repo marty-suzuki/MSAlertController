@@ -44,6 +44,8 @@ typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
 @property (strong, nonatomic) UIColor *messageColor;
 @property (strong, nonatomic) UIFont *messageFont;
 @property (assign, nonatomic) BOOL enabledBlurEffect;
+@property (strong, nonatomic) UIColor *backgroundColor;
+@property (assign, nonatomic) CGFloat alpha;
 
 + (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(MSAlertControllerStyle)preferredStyle;
 - (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;

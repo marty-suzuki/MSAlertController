@@ -375,8 +375,9 @@ static CGFloat const kTextFieldWidth = 234.0f;
         self.textFields = [NSArray array];
         self.animation = [[MSAlertAnimation alloc] init];
         self.preferredStyle = preferredStyle;
-        
         self.enabledBlurEffect = YES;
+        self.backgroundColor = [UIColor grayColor];
+        self.alpha = 0.5f;
         
         disabledColor = [UIColor colorWithRed:131.0f/255.0f green:131.0f/255.0f blue:131.0f/255.0f alpha:1.0f];
     }
@@ -398,8 +399,6 @@ static CGFloat const kTextFieldWidth = 234.0f;
                                                object:nil];
     
     self.view.frame = [UIScreen mainScreen].bounds;
-    self.backgroundView.backgroundColor = [UIColor grayColor];
-    self.backgroundView.alpha = 0.5f;
     
     self.tableView.layer.cornerRadius = 6.0f;
     self.tableView.layer.masksToBounds = YES;
@@ -428,6 +427,9 @@ static CGFloat const kTextFieldWidth = 234.0f;
     } else {
         self.imageView.image = screenshot;
     }
+    
+    self.backgroundView.backgroundColor = self.backgroundColor;
+    self.backgroundView.alpha = self.alpha;
     
     self.titleLabel.text = self.title;
     self.titleLabel.textColor = self.titleColor;
