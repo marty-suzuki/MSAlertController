@@ -8,6 +8,7 @@
 
 #import "MSAlertController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <Accelerate/Accelerate.h>
 
 
 #pragma mark - UIImage Category
@@ -77,18 +78,42 @@
 }
 
 - (UIImage *)bluredImage {
-    CIContext *context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer: @NO}];
-    CIImage *inputImage = [CIImage imageWithCGImage:self.CGImage];
+    uint32_t boxSize = 0.15 * 100;
+    boxSize = boxSize - (boxSize % 2) + 1;
+    CGImageRef image = self.CGImage;
+    vImage_Buffer inBuffer, outBuffer;
+    vImage_Error error;
+    void *pixelBuffer;
+    CGDataProviderRef inProvider = CGImageGetDataProvider(image);
+    CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
+    inBuffer.width = CGImageGetWidth(image);
+    inBuffer.height = CGImageGetHeight(image);
+    inBuffer.rowBytes = CGImageGetBytesPerRow(image);
+    inBuffer.data = (void *)CFDataGetBytePtr(inBitmapData);
     
-    CIFilter *gaussianBlurFilter = [CIFilter filterWithName: @"CIGaussianBlur"];
-    [gaussianBlurFilter setDefaults];
-    [gaussianBlurFilter setValue:inputImage forKey:kCIInputImageKey];
-    [gaussianBlurFilter setValue:@5.0f forKey:kCIInputRadiusKey];
+    pixelBuffer = malloc(CGImageGetBytesPerRow(image) * CGImageGetHeight(image));
+    outBuffer.data = pixelBuffer;
+    outBuffer.width = CGImageGetWidth(image);
+    outBuffer.height = CGImageGetHeight(image);
+    outBuffer.rowBytes = CGImageGetBytesPerRow(image);
     
-    CIImage *result = [gaussianBlurFilter valueForKey:kCIOutputImageKey];
-    CGImageRef cgImage = [context createCGImage:result fromRect:inputImage.extent];
+    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
     
-    return [UIImage imageWithCGImage:cgImage];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(outBuffer.data, outBuffer.width, outBuffer.height, 8, outBuffer.rowBytes, colorSpace, CGImageGetBitmapInfo(image));
+    CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
+    UIImage *bluredImage = [UIImage imageWithCGImage:imageRef];
+    
+    CGContextRelease(ctx);
+    CGColorSpaceRelease(colorSpace);
+    
+    free(pixelBuffer);
+    CFRelease(inBitmapData);
+    
+    CGColorSpaceRelease(colorSpace);
+    CGImageRelease(imageRef);
+    
+    return bluredImage;
 }
 
 - (void)bluerdImageWithCompletion:(void(^)(UIImage *bluerdImage))completion {
