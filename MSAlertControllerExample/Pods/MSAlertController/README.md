@@ -161,6 +161,7 @@ Action Sheet is compatible with same customization.
 - iOS 7.0 and greater
 - ARC
 - QuartzCore.framework
+- Accelerate.framework
 
 ## Installation
 

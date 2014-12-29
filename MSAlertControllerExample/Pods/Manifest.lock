@@ -1,10 +1,10 @@
 PODS:
-  - MSAlertController (0.1.2)
+  - MSAlertController (0.1.3)
 
 DEPENDENCIES:
   - MSAlertController
 
 SPEC CHECKSUMS:
-  MSAlertController: 29fffa228c1ead35c32a371d1aab2f3ff416482c
+  MSAlertController: 186be566d93e56f67091ec30175eb5eae80591bc
 
 COCOAPODS: 0.34.4

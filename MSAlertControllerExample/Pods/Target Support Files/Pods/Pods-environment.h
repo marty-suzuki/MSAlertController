@@ -10,5 +10,5 @@
 #define COCOAPODS_POD_AVAILABLE_MSAlertController
 #define COCOAPODS_VERSION_MAJOR_MSAlertController 0
 #define COCOAPODS_VERSION_MINOR_MSAlertController 1
-#define COCOAPODS_VERSION_PATCH_MSAlertController 2
+#define COCOAPODS_VERSION_PATCH_MSAlertController 3
 
