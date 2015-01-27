@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,41 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-k0-QlZ">
-                                <rect key="frame" x="263" y="285" width="75" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="veN-up-z13"/>
-                                    <constraint firstAttribute="width" constant="75" id="whF-xx-LtY"/>
-                                </constraints>
-                                <state key="normal" title="Show Alert">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="amW-Zu-IgN">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="showAlertButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="12G-zd-vIL"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="AKh-jj-U4O"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Ug-eD-LTa"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7N-4K-Jpu">
-                                <rect key="frame" x="235" y="323" width="131" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="2wY-e9-dZf"/>
-                                    <constraint firstAttribute="height" constant="30" id="oHO-ce-kJT"/>
-                                </constraints>
-                                <state key="normal" title="Show Action Sheet">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showActionSheetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QBo-9n-ewl"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Wbm-k0-QlZ" secondAttribute="centerX" id="AcC-j0-k49"/>
-                            <constraint firstAttribute="centerY" secondItem="Wbm-k0-QlZ" secondAttribute="centerY" id="LXh-mb-994"/>
-                            <constraint firstAttribute="centerX" secondItem="B7N-4K-Jpu" secondAttribute="centerX" id="hZl-Mj-Al3"/>
-                            <constraint firstItem="B7N-4K-Jpu" firstAttribute="top" secondItem="Wbm-k0-QlZ" secondAttribute="bottom" constant="8" id="ro5-mu-YTA"/>
+                            <constraint firstItem="amW-Zu-IgN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="O0N-km-jfQ"/>
+                            <constraint firstItem="amW-Zu-IgN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c2Q-zz-gFd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="amW-Zu-IgN" secondAttribute="bottom" id="lf8-W5-R4R"/>
+                            <constraint firstAttribute="trailing" secondItem="amW-Zu-IgN" secondAttribute="trailing" id="mT1-Lr-niC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="amW-Zu-IgN" id="xyx-tp-Cth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
