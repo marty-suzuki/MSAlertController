@@ -173,6 +173,10 @@ it, simply add the following line to your Podfile:
 
     pod "MSAlertController"
 
+## Other
+
+A sample of this project uses "[SACollectionViewVerticalScalingFlowLayout](https://github.com/szk-atmosphere/SACollectionViewVerticalScalingFlowLayout)" to apply scaling effect for scrolling.
+
 ## Author
 
 Taiki Suzuki, s1180183@gmail.com
