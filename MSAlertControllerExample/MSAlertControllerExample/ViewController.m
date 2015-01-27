@@ -8,26 +8,26 @@
 
 #import "ViewController.h"
 #import "MSAlertController.h"
+#import "SACollectionViewVerticalScalingFlowLayout.h"
+#import "SACollectionViewVerticalScalingCell.h"
 
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation ViewController
 
 static NSString *const kCellIdentifier = @"Cell";
-static NSInteger const kNumberOfRows = 2;
-static NSArray *_cellNames = nil;
+static NSArray *_imageNames = nil;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         static dispatch_once_t token;
         dispatch_once(&token, ^{
-            _cellNames = @[@"Alert", @"Action Sheet"];
+            _imageNames = @[@"alert", @"actionsheet", @"custom"];
         });
     }
     return self;
@@ -35,8 +35,14 @@ static NSArray *_cellNames = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
+    SACollectionViewVerticalScalingFlowLayout *layout = [[SACollectionViewVerticalScalingFlowLayout alloc] init];
+    layout.scaleMode = SACollectionViewVerticalScalingFlowLayoutScaleModeHard;
+    layout.alphaMode = SACollectionViewVerticalScalingFlowLayoutAlphaModeEasy;
+    self.collectionView.collectionViewLayout = layout;
+    
+    [self.collectionView registerClass:[SACollectionViewVerticalScalingCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,8 +51,8 @@ static NSArray *_cellNames = nil;
 }
 
 #pragma mark - ViewController Private Methods
-- (NSArray *)cellNames {
-    return _cellNames;
+- (NSArray *)imageNames {
+    return _imageNames;
 }
 
 - (void)showAlert {
@@ -92,21 +98,68 @@ static NSArray *_cellNames = nil;
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-#pragma mark - UITableViewDataSource Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kNumberOfRows;
+- (void)showCustomAlert {
+    MSAlertController *alertController = [MSAlertController alertControllerWithTitle:@"MSAlertController" message:@"This is MSAlertController." preferredStyle:MSAlertControllerStyleAlert];
+    alertController.titleFont = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
+    alertController.messageFont = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
+    alertController.alertBackgroundColor = [UIColor orangeColor];
+    alertController.backgroundColor = [UIColor greenColor];
+    alertController.alpha = 0.4f;
+    alertController.separatorColor = [UIColor whiteColor];
+    
+    MSAlertAction *action = [MSAlertAction actionWithTitle:@"Cancel" style:MSAlertActionStyleCancel handler:^(MSAlertAction *action) {
+        //Write a code for this action.
+    }];
+    action.normalColor = [UIColor yellowColor];
+    action.highlightedColor = [UIColor whiteColor];
+    action.titleColor = [UIColor redColor];
+    action.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
+    [alertController addAction:action];
+    
+    MSAlertAction *action2 = [MSAlertAction actionWithTitle:@"Destructive" style:MSAlertActionStyleDestructive handler:^(MSAlertAction *action) {
+        NSLog(@"Destructive action tapped %@", action);
+    }];
+    action2.normalColor = [UIColor cyanColor];
+    action2.highlightedColor = [UIColor whiteColor];
+    action2.titleColor = [UIColor redColor];
+    action2.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
+    [alertController addAction:action2];
+    
+    MSAlertAction *action3 = [MSAlertAction actionWithTitle:@"Default" style:MSAlertActionStyleDefault handler:^(MSAlertAction *action) {
+        NSLog(@"Default action tapped %@", action);
+    }];
+    action3.normalColor = [UIColor redColor];
+    action3.highlightedColor = [UIColor purpleColor];
+    action3.titleColor = [UIColor whiteColor];
+    action3.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:18.0f];
+    [alertController addAction:action3];
+    
+    [alertController addTextFieldWithConfigurationHandler:nil];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = self.cellNames[indexPath.row];
+#pragma mark - UICollectionViewDataSource Methods
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.imageNames.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    SACollectionViewVerticalScalingCell *cell = (SACollectionViewVerticalScalingCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+    
+    UIImage *image = [UIImage imageNamed:self.imageNames[indexPath.row]];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    imageView.image = image;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.containerView addSubview:imageView];
+    
     return cell;
 }
 
-#pragma mark - UITableViewDelegate Methods
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+#pragma mark - UICollectionViewDelegate Methods
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+
     switch (indexPath.row) {
         case 0:
             [self showAlert];
@@ -114,6 +167,10 @@ static NSArray *_cellNames = nil;
             
         case 1:
             [self showActionSheet];
+            break;
+        
+        case 2:
+            [self showCustomAlert];
             break;
             
         default:
