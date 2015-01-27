@@ -1,6 +1,5 @@
 # MSAlertController
 
-[![CI Status](http://img.shields.io/travis/Taiki Suzuki/MSAlertController.svg?style=flat)](https://travis-ci.org/Taiki Suzuki/MSAlertController)
 [![Version](https://img.shields.io/cocoapods/v/MSAlertController.svg?style=flat)](http://cocoadocs.org/docsets/MSAlertController)
 [![License](https://img.shields.io/cocoapods/l/MSAlertController.svg?style=flat)](http://cocoadocs.org/docsets/MSAlertController)
 [![Platform](https://img.shields.io/cocoapods/p/MSAlertController.svg?style=flat)](http://cocoadocs.org/docsets/MSAlertController)
@@ -12,15 +11,16 @@
 
 #### In addtion, customize font, font size and font color.
 
-![Alert](./Raw/images/alert.png)
-![Action_sheet](./Raw/images/action_sheet.png)
-
+![gif](./Raw/images/alert.gif)
 
 ## Usage
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 
 #### For Alert
+
+![Alert](./Raw/images/alert.png)
+
 Set ```MSAlertControllerStyleAlert``` to preferredStyle.
 
 
@@ -49,6 +49,9 @@ Set ```MSAlertControllerStyleAlert``` to preferredStyle.
 
 
 #### For Action Sheet
+
+![Action_sheet](./Raw/images/action_sheet.png)
+
 Set ```MSAlertControllerStyleActionSheet``` to preferredStyle.
 
 
