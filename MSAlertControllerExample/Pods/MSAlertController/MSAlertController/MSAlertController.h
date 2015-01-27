@@ -36,6 +36,9 @@ typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
 
 @interface MSAlertController : UIViewController
 
+// Views on Alert Controller
+@property (weak, nonatomic, readonly) IBOutlet UIView *tableViewContainer;
+
 @property (copy, nonatomic, readonly) NSArray *actions;
 @property (copy, nonatomic, readonly) NSArray *textFields;
 @property (copy, nonatomic) NSString *title;

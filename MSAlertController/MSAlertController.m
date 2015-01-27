@@ -179,12 +179,22 @@ static CGFloat const kAnimationDuration = 0.25f;
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toViewController.view.frame = CGRectMake(0.0f, 0.0f, windowSize.width, windowSize.height);
     toViewController.view.alpha = 0.0f;
-    toViewController.view.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
+    if ([toViewController isMemberOfClass:[MSAlertController class]]) {
+        MSAlertController* alertController = (MSAlertController *)toViewController;
+        if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
+            alertController.tableViewContainer.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
+        }
+    }
     [containerView addSubview:toViewController.view];
     
     [UIView animateWithDuration:kAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(void) {
         toViewController.view.alpha = 1.0f;
-        toViewController.view.transform = CGAffineTransformIdentity;
+        if ([toViewController isMemberOfClass:[MSAlertController class]]) {
+            MSAlertController* alertController = (MSAlertController *)toViewController;
+            if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
+                alertController.tableViewContainer.transform = CGAffineTransformIdentity;
+            }
+        }
     } completion:^(BOOL finished) {
         if (finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -319,7 +329,7 @@ static NSDictionary *_defaultColors = nil;
 // Views on Alert Controller
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
-@property (weak, nonatomic) IBOutlet UIView *tableViewContainer;
+@property (weak, nonatomic, readwrite) IBOutlet UIView *tableViewContainer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 

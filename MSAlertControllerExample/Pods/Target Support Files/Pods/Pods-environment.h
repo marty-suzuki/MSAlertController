@@ -12,3 +12,9 @@
 #define COCOAPODS_VERSION_MINOR_MSAlertController 1
 #define COCOAPODS_VERSION_PATCH_MSAlertController 3
 
+// SACollectionViewVerticalScalingFlowLayout
+#define COCOAPODS_POD_AVAILABLE_SACollectionViewVerticalScalingFlowLayout
+#define COCOAPODS_VERSION_MAJOR_SACollectionViewVerticalScalingFlowLayout 1
+#define COCOAPODS_VERSION_MINOR_SACollectionViewVerticalScalingFlowLayout 0
+#define COCOAPODS_VERSION_PATCH_SACollectionViewVerticalScalingFlowLayout 0
+
