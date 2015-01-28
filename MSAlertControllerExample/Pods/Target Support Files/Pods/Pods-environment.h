@@ -8,9 +8,9 @@
 
 // MSAlertController
 #define COCOAPODS_POD_AVAILABLE_MSAlertController
-#define COCOAPODS_VERSION_MAJOR_MSAlertController 0
-#define COCOAPODS_VERSION_MINOR_MSAlertController 1
-#define COCOAPODS_VERSION_PATCH_MSAlertController 3
+#define COCOAPODS_VERSION_MAJOR_MSAlertController 1
+#define COCOAPODS_VERSION_MINOR_MSAlertController 0
+#define COCOAPODS_VERSION_PATCH_MSAlertController 0
 
 // SACollectionViewVerticalScalingFlowLayout
 #define COCOAPODS_POD_AVAILABLE_SACollectionViewVerticalScalingFlowLayout
