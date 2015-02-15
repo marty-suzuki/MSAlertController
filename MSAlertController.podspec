@@ -9,13 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name             = "MSAlertController"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "MSAlertController is possible you to use AlertController in iOS7."
 
   s.homepage         = "https://github.com/szk-atmosphere/MSAlertController"
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
-  s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => "v1.0.0" }
+  s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
