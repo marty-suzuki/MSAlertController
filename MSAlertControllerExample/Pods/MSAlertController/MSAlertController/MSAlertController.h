@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
 
 @property (copy, nonatomic, readonly) NSString *title;
 @property (assign, nonatomic, readonly) MSAlertActionStyle style;
-@property (assign, nonatomic, getter=isEnabled) BOOL enabled;
+@property (assign, nonatomic) BOOL enabled;
 @property (strong, nonatomic) UIColor *titleColor;
 @property (strong, nonatomic) UIFont *font;
 @property (strong, nonatomic) UIColor *normalColor;

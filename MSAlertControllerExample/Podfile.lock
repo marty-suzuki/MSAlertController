@@ -1,5 +1,5 @@
 PODS:
-  - MSAlertController (1.0.1)
+  - MSAlertController (1.0.2)
   - SACollectionViewVerticalScalingFlowLayout (1.0.0)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - SACollectionViewVerticalScalingFlowLayout
 
 SPEC CHECKSUMS:
-  MSAlertController: bc26f874f4a3a1d494201a3c2e0092d0097e229f
+  MSAlertController: 2b9d1aa709bd83147b0136788ecc8c3c89e10ab6
   SACollectionViewVerticalScalingFlowLayout: b20bec66cb29e98935dd72b7b096777649ab423e
 
 COCOAPODS: 0.36.0.beta.2
