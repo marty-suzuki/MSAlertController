@@ -179,7 +179,7 @@ static CGFloat const kAnimationDuration = 0.25f;
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toViewController.view.frame = CGRectMake(0.0f, 0.0f, windowSize.width, windowSize.height);
     toViewController.view.alpha = 0.0f;
-    if ([toViewController isMemberOfClass:[MSAlertController class]]) {
+    if ([toViewController isKindOfClass:[MSAlertController class]]) {
         MSAlertController* alertController = (MSAlertController *)toViewController;
         if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
             alertController.tableViewContainer.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
@@ -189,7 +189,7 @@ static CGFloat const kAnimationDuration = 0.25f;
     
     [UIView animateWithDuration:kAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(void) {
         toViewController.view.alpha = 1.0f;
-        if ([toViewController isMemberOfClass:[MSAlertController class]]) {
+        if ([toViewController isKindOfClass:[MSAlertController class]]) {
             MSAlertController* alertController = (MSAlertController *)toViewController;
             if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
                 alertController.tableViewContainer.transform = CGAffineTransformIdentity;
@@ -700,7 +700,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
 
 - (void)cancelButtonTapped:(id)sender {
     MSAlertAction *action = [self cancelAction];
-    if ([action isMemberOfClass:[MSAlertAction class]] && action.handler) {
+    if ([action isKindOfClass:[MSAlertAction class]] && action.handler) {
         action.handler(action);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -823,7 +823,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     MSAlertAction *action = [self.actions objectAtIndex:indexPath.row];
-    if ([action isMemberOfClass:[MSAlertAction class]] && action.handler) {
+    if ([action isKindOfClass:[MSAlertAction class]] && action.handler) {
         action.handler(action);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
