@@ -304,7 +304,7 @@ static NSDictionary *_defaultColors = nil;
 - (void)setEnabled:(BOOL)enabled {
     BOOL previousValue = self.enabled;
     _enabled = enabled;
-    if (previousValue != self.enabled) {a
+    if (previousValue != self.enabled) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kAlertActionChangeEnabledProperty object:nil];
     }
 }
