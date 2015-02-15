@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Accelerate/Accelerate.h>
 
-
 #pragma mark - UIImage Category
 @interface UIImage (Extension)
 
@@ -244,6 +243,8 @@ static CGFloat const kAnimationDuration = 0.25f;
 
 
 #pragma mark - MSAlertAction Class
+NSString *const kAlertActionChangeEnabledProperty = @"kAlertActionChangeEnabledProperty";
+
 @interface MSAlertAction ()
 
 typedef void (^MSAlertActionHandler)(MSAlertAction *action);
@@ -300,8 +301,12 @@ static NSDictionary *_defaultColors = nil;
     return clone;
 }
 
-- (BOOL)isEnabled {
-    return _enabled;
+- (void)setEnabled:(BOOL)enabled {
+    BOOL previousValue = self.enabled;
+    _enabled = enabled;
+    if (previousValue != self.enabled) {a
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAlertActionChangeEnabledProperty object:nil];
+    }
 }
 
 - (NSDictionary *)defaultFonts {
@@ -433,6 +438,11 @@ static CGFloat const kTextFieldWidth = 234.0f;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(relaodTableView:)
+                                                 name:kAlertActionChangeEnabledProperty
                                                object:nil];
     
     self.view.frame = [UIScreen mainScreen].bounds;
@@ -696,6 +706,10 @@ static CGFloat const kTextFieldWidth = 234.0f;
         }
     }
     return nil;
+}
+
+- (void)relaodTableView:(NSNotification *)notification {
+    [self.tableView reloadData];
 }
 
 - (void)cancelButtonTapped:(id)sender {
