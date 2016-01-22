@@ -1,1 +1,1 @@
-../../../MSAlertController/MSAlertController/MSAlertController.h
+../../../../../MSAlertController/MSAlertController.h

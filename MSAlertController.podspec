@@ -9,17 +9,19 @@
 
 Pod::Spec.new do |s|
   s.name             = "MSAlertController"
-  s.version          = "1.0.2"
+  s.version          = "2.0.0"
   s.summary          = "MSAlertController is possible you to use AlertController in iOS7."
 
   s.homepage         = "https://github.com/szk-atmosphere/MSAlertController"
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
   s.source           = { :git => "https://github.com/szk-atmosphere/MSAlertController.git", :tag => s.version.to_s }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'MSAlertController/*.{h,m}'
+  s.source_files = 'MSAlertController/*.{h,m,swift}'
   s.resources    = 'MSAlertController/*.xib'
   s.frameworks = 'UIKit', 'QuartzCore'
+  s.dependency 'MisterFusion'
+  s.dependency 'SABlurImageView'
 end

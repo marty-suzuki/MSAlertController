@@ -1,3 +1,4 @@
-platform :ios, "7.0"
-pod "MSAlertController"
+platform :ios, "8.0"
+pod "MSAlertController", :path => '../'
 pod "SACollectionViewVerticalScalingFlowLayout"
+use_frameworks!

@@ -1,13 +1,23 @@
 PODS:
-  - MSAlertController (1.0.2)
-  - SACollectionViewVerticalScalingFlowLayout (1.0.0)
+  - MisterFusion (0.8.0)
+  - MSAlertController (2.0.0):
+    - MisterFusion
+    - SABlurImageView
+  - SABlurImageView (2.1.0)
+  - SACollectionViewVerticalScalingFlowLayout (2.2.0)
 
 DEPENDENCIES:
-  - MSAlertController
+  - MSAlertController (from `../`)
   - SACollectionViewVerticalScalingFlowLayout
 
-SPEC CHECKSUMS:
-  MSAlertController: 2b9d1aa709bd83147b0136788ecc8c3c89e10ab6
-  SACollectionViewVerticalScalingFlowLayout: b20bec66cb29e98935dd72b7b096777649ab423e
+EXTERNAL SOURCES:
+  MSAlertController:
+    :path: "../"
 
-COCOAPODS: 0.36.0.beta.2
+SPEC CHECKSUMS:
+  MisterFusion: 3b20851bc79eeaba59070922102f1bd2866dfe02
+  MSAlertController: df1091f59d2869aa46919e5901c6a1df4e803724
+  SABlurImageView: 869da4e0b80e60b21b05d98509de98d0221c15d5
+  SACollectionViewVerticalScalingFlowLayout: 0a963e11d7d98c25dfc08ab888990611606260fc
+
+COCOAPODS: 0.39.0

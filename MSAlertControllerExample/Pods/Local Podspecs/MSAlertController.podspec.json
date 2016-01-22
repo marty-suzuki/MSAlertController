@@ -1,0 +1,32 @@
+{
+  "name": "MSAlertController",
+  "version": "2.0.0",
+  "summary": "MSAlertController is possible you to use AlertController in iOS7.",
+  "homepage": "https://github.com/szk-atmosphere/MSAlertController",
+  "license": "MIT",
+  "authors": {
+    "Taiki Suzuki": "s1180183@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/szk-atmosphere/MSAlertController.git",
+    "tag": "2.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "MSAlertController/*.{h,m,swift}",
+  "resources": "MSAlertController/*.xib",
+  "frameworks": [
+    "UIKit",
+    "QuartzCore"
+  ],
+  "dependencies": {
+    "MisterFusion": [
+
+    ],
+    "SABlurImageView": [
+
+    ]
+  }
+}
