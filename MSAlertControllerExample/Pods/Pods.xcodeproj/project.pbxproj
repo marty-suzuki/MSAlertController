@@ -7,51 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		028AC5AF3C873822B8EC20197DA28C78 /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140EE3292E169C53C5CE17237915BF8 /* UIImage+BlurEffect.swift */; };
-		03F5A5B7E990A6004D474F5888FDF9EB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397DFAD4D81CE3FA3F392FE70A2DEF0 /* UIImage+Extensions.swift */; };
-		1331C5A61BB78660BB17D6A2DB4FA39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */; };
-		14255D8362AFC2D3611757450E29EF23 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57EC5ADE3C1ACD14B45F5A8432A31A /* CATransition+Closure.swift */; };
-		1F14F591C103A3C813FB36B030A6B029 /* MSAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E1F76E4AD1216DC84FC475EB0581A9 /* MSAlertController.xib */; };
+		02AA10859F5BAC7F7CE4DDBC7EDF00D6 /* MSAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8280A4E9E27E98D2A485975F5D49AD1A /* MSAlertController.xib */; };
+		0CFCA4077AF72A5BE93FC0122769F705 /* SABlurImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CA73CA2106049A384D2635A76B7553 /* SABlurImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15F00297607B8EB551DF53C4AB98A25A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
+		1680DB139DCBAD7CBB489A8A92CD084E /* MSAlertHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880143968E85542D804661950EDB25B /* MSAlertHeaderView.swift */; };
+		17680372351FAFAAA738A14B1EE4D22C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B7F928BA21A51F1D6714DE7784125 /* QuartzCore.framework */; };
+		204A7E9F90355FE55B8A53C42434203C /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50D6FD9A0EAA32CC2BA6A64065A0E0 /* SABlurImageView.swift */; };
 		22636CE1C55E8CA607798DEEABC3E8B7 /* MisterFusion-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B26F2E0EFC8522253FE245662615FF /* MisterFusion-dummy.m */; };
-		2B92EBAB8D2F0B584E0B80CDA81DA777 /* SABlurImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094106F6E5EC32B01BBCF4A1E7AB8703 /* SABlurImageView.framework */; };
-		46BEF9318B0276FB4741330306CBF864 /* SABlurImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0FD8E530236D228F9F46CD00D3B30E /* SABlurImageView-dummy.m */; };
-		489DD65EB6168AA956DBFB14669D705B /* SABlurImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CA73CA2106049A384D2635A76B7553 /* SABlurImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2691C04D796BF301550002D5FD00BE57 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3D2D473E4AEE5204526CFBE29B03A /* UIImage+Extensions.swift */; };
+		370C55811C53361E00D9369A /* MSAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C55801C53361E00D9369A /* MSAlertAction.swift */; };
 		4A3651698C02D12424EE6673CC3E4BFF /* SACollectionViewVerticalScalingFlowLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 774347EBC8258536B7C561D099F2DA67 /* SACollectionViewVerticalScalingFlowLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53EE8DE41682CE1D265BE8B60ED69A11 /* Array+MisterFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBD69E9448615F860353A122A6BC32 /* Array+MisterFusion.swift */; };
-		5CD1E1F672603A2BE735721DD7810DBE /* MSAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79159B080A577AE1C956BC6FA4854E5D /* MSAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E86A5E25B70813D07F25A5B8931DAD5 /* MSAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFA8E186DB26E3123E0006B1E463302 /* MSAlertController-dummy.m */; };
 		617D6955632B54BCC4B81D5A66B006BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
-		6EED8F7F12A5882787C4EC6C6BEF6413 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B7F928BA21A51F1D6714DE7784125 /* QuartzCore.framework */; };
-		751F809B308BFD2619306D65D391D00E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
+		62BB02E42268E42997C4D7A66375D750 /* MSAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83589641F0D54D37633E1B6161C105 /* MSAlertController-dummy.m */; };
+		66D81D6774EB4AF81257B1883118CB6D /* MSAlertController_ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAD83C1C895358EC2ED587625E625D9A /* MSAlertController_ActionSheet.xib */; };
+		70CD210D936B31EE47F65009A9DF1C62 /* UIImage+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140EE3292E169C53C5CE17237915BF8 /* UIImage+BlurEffect.swift */; };
 		764BA9F3EBE2F4BA83594C6DCB0F6A61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
+		7DE675FCD93558216E85643788AE74A5 /* MSAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C6A121612E6436D722D41C32A1F0A8A /* MSAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FFD06319549D731351136BFEAF737CB /* MSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991E1AC65D8F223723695DD733567DBC /* MSAlertController.m */; };
 		845A30ED0017F9BCAE8109D4B63EA619 /* SACollectionViewVerticalScalingFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31B56E0D72D37A493330471A3AD0D7 /* SACollectionViewVerticalScalingFlowLayout-dummy.m */; };
-		869C02F14A2290CCCCF0F3B6D19F1085 /* MSAlertController_ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A27A082C6B8FE8174F6FF0B2EAD6FEF /* MSAlertController_ActionSheet.xib */; };
 		8803D11C53FF138FB99D9B0701E88475 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		90697E516B043547D22D2684597EA047 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1FBCB93B80A2658C0701E1649F87FE /* Accelerate.framework */; };
 		90A3617A3C1D08686E47D2BD38CF2294 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
+		9935D6B5BF135D7C889D06FFFB448429 /* SABlurImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094106F6E5EC32B01BBCF4A1E7AB8703 /* SABlurImageView.framework */; };
 		9CA8A7D5FAEADC18AAA0A20B04B39038 /* SACollectionViewVerticalScalingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF804CB0C2919C25B9DB651275BE2B4 /* SACollectionViewVerticalScalingCell.swift */; };
 		A03C84FA56C1EFBCE51BD48F9EBD5CD3 /* MisterFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD814A80ED0E9A0638A2009A8B4470 /* MisterFusion.swift */; };
+		A7BCF101FAC2B6B15B91B3FEF966FC0F /* MisterFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D87380FDF311CE18E3968EC9D95908 /* MisterFusion.framework */; };
 		B015BEB4365E8BE922765A95CEF7EFC0 /* SACollectionViewVerticalScalingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD459A1C34330366AF574AD4D6F27D /* SACollectionViewVerticalScalingFlowLayout.swift */; };
-		B0EE67A83162F73437D59E744C32C19B /* MSAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0863C63232395B79800BB3F6A517A0E0 /* MSAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B235237DA529C3A8185B665A7B2556A1 /* CATransition+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57EC5ADE3C1ACD14B45F5A8432A31A /* CATransition+Closure.swift */; };
 		B2AC28704B5159D1E6C0642B3FEA19ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */; };
-		C5E49ADAE06A22830E6EB0B3C7F0AF85 /* SABlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50D6FD9A0EAA32CC2BA6A64065A0E0 /* SABlurImageView.swift */; };
-		E62D13072DEBBCC832E637860B3B40E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
-		E8622C749D83ECB2BB7F5EB4C49920A8 /* MSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D6A0EAB2E4811DE9CD6F56E634C6CC /* MSAlertController.m */; };
+		B7BE37098FCDB19E13F65E6EC048E56C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */; };
+		BD39AFF8DBA29F4863F976483E6C9836 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1FBCB93B80A2658C0701E1649F87FE /* Accelerate.framework */; };
+		CDE45F4FA711563B5863B83E5FCAE9AC /* MSAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7083EEA001684E73373C980EAB75DBD4 /* MSAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE39BC96B7FCD543B2FAE335907DDAE9 /* SABlurImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0FD8E530236D228F9F46CD00D3B30E /* SABlurImageView-dummy.m */; };
+		DE57A98D5D629F7B7B658D18D0A3E6FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B7F928BA21A51F1D6714DE7784125 /* QuartzCore.framework */; };
+		E65C6537938BE826F74A9765EE2CA3C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
 		E97A332AFCB13BB4E1857CA5BCB2A357 /* MisterFusion-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5260DBF9C3C5E2D6380B4E162BD9F8EE /* MisterFusion-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB94D7AE205CBBF015F0FEDFB58D7FDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */; };
 		EE6E4183E3F9C468C244DAE05651626A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
-		FD29BEFDB7B8B18741FF4E21154A0ED2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B7F928BA21A51F1D6714DE7784125 /* QuartzCore.framework */; };
-		FECC5B3C7A20BACEBFD255DE61C101C2 /* MisterFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D87380FDF311CE18E3968EC9D95908 /* MisterFusion.framework */; };
+		F1AC005458EEF4F800CFB55D9F0C5E5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */; };
+		F8916F1359A23F035D7BCBEB48CEF8EA /* MSAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8EC6196F63D38C1842DAC903821D44B /* MSAlertController.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		07BE8B1F862274C67BB889F97B85B13C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C51452213515080BF38DBEC7265344DE;
-			remoteInfo = SABlurImageView;
-		};
 		08CA32100301577B602DE5EB43A5AB90 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -59,18 +55,39 @@
 			remoteGlobalIDString = 9FC843BD22328DEFBCAB1DA4A92108F7;
 			remoteInfo = MisterFusion;
 		};
+		2E193A1E701A0CAA53DC1F22EEAE02A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9975603F83B26E1F1F235296749F71F7;
+			remoteInfo = "MSAlertController-MSAlertController";
+		};
+		329DD4946EC9E2E12980F29F049C17DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC843BD22328DEFBCAB1DA4A92108F7;
+			remoteInfo = MisterFusion;
+		};
+		3EB1AA00CC3B55DA83819509FCB1E9DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87E20BE7B1AD76D8ABF124A905973E90;
+			remoteInfo = SABlurImageView;
+		};
 		93D0FB1A655C589572DEA084CAC54850 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E62204A9C68054DC8C08EF082912CF69;
+			remoteGlobalIDString = 27FD7A5C07C9E2B29F988306DE49BE33;
 			remoteInfo = MSAlertController;
 		};
 		A21F5B83B32986232C096DB98524F669 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C51452213515080BF38DBEC7265344DE;
+			remoteGlobalIDString = 87E20BE7B1AD76D8ABF124A905973E90;
 			remoteInfo = SABlurImageView;
 		};
 		A32B470F834BF990EECC4658493FC19E /* PBXContainerItemProxy */ = {
@@ -80,66 +97,62 @@
 			remoteGlobalIDString = 49507E37B812CF21E401EFD76DDA182B;
 			remoteInfo = SACollectionViewVerticalScalingFlowLayout;
 		};
-		AAF2FB5062C3FE9AB39CA23EAECCF7D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FC843BD22328DEFBCAB1DA4A92108F7;
-			remoteInfo = MisterFusion;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01A3D2D473E4AEE5204526CFBE29B03A /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		081ACB9C8F7A405166F2C13D0BC2889A /* SABlurImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SABlurImageView.modulemap; sourceTree = "<group>"; };
-		0863C63232395B79800BB3F6A517A0E0 /* MSAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSAlertController.h; sourceTree = "<group>"; };
 		094106F6E5EC32B01BBCF4A1E7AB8703 /* SABlurImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SABlurImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSAlertController.xcconfig; sourceTree = "<group>"; };
+		0AB85460F6AA4E965FAC152C41F7CFEE /* SACollectionViewVerticalScalingFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SACollectionViewVerticalScalingFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B31B56E0D72D37A493330471A3AD0D7 /* SACollectionViewVerticalScalingFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SACollectionViewVerticalScalingFlowLayout-dummy.m"; sourceTree = "<group>"; };
-		0FFA8E186DB26E3123E0006B1E463302 /* MSAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSAlertController-dummy.m"; sourceTree = "<group>"; };
-		111E948B23A80224D0FDDBFFB0C2CD61 /* MSAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSAlertController.xcconfig; sourceTree = "<group>"; };
 		1A68455C0F1828C20544CCEDB0C9F4E5 /* MisterFusion-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MisterFusion-prefix.pch"; sourceTree = "<group>"; };
 		1F50D6FD9A0EAA32CC2BA6A64065A0E0 /* SABlurImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SABlurImageView.swift; path = SABlurImageView/SABlurImageView.swift; sourceTree = "<group>"; };
-		21E1F76E4AD1216DC84FC475EB0581A9 /* MSAlertController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSAlertController.xib; sourceTree = "<group>"; };
 		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		31D28771375EEE3373EE905F7F2BBA28 /* MSAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		370C55801C53361E00D9369A /* MSAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSAlertAction.swift; sourceTree = "<group>"; };
 		39E3B229E9469862023551DA27BE5692 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4057E7F6279E865C4BF1FCCFD1B335BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49B21F1DAFBAA8B01C82BAECD5335AB7 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF804CB0C2919C25B9DB651275BE2B4 /* SACollectionViewVerticalScalingCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SACollectionViewVerticalScalingCell.swift; path = SACollectionViewVerticalScalingFlowLayout/SACollectionViewVerticalScalingCell.swift; sourceTree = "<group>"; };
 		5260DBF9C3C5E2D6380B4E162BD9F8EE /* MisterFusion-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MisterFusion-umbrella.h"; sourceTree = "<group>"; };
-		5A2DD79BEB85C55190ECDAA85DE6B605 /* MSAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSAlertController.modulemap; sourceTree = "<group>"; };
 		6396C5B5D51777B70C245791FFCD04A7 /* SACollectionViewVerticalScalingFlowLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SACollectionViewVerticalScalingFlowLayout.modulemap; sourceTree = "<group>"; };
 		65D87380FDF311CE18E3968EC9D95908 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6611A24B2A08DD5931D360AFBC10474D /* MSAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FF5A6895696CCB21BD8D5C23A4DFDC /* MSAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSAlertController.modulemap; sourceTree = "<group>"; };
+		7083EEA001684E73373C980EAB75DBD4 /* MSAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSAlertController.h; sourceTree = "<group>"; };
 		774347EBC8258536B7C561D099F2DA67 /* SACollectionViewVerticalScalingFlowLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SACollectionViewVerticalScalingFlowLayout-umbrella.h"; sourceTree = "<group>"; };
 		77B26F2E0EFC8522253FE245662615FF /* MisterFusion-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MisterFusion-dummy.m"; sourceTree = "<group>"; };
-		79159B080A577AE1C956BC6FA4854E5D /* MSAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSAlertController-umbrella.h"; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8280A4E9E27E98D2A485975F5D49AD1A /* MSAlertController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSAlertController.xib; sourceTree = "<group>"; };
 		82CA73CA2106049A384D2635A76B7553 /* SABlurImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SABlurImageView-umbrella.h"; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		8A27A082C6B8FE8174F6FF0B2EAD6FEF /* MSAlertController_ActionSheet.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSAlertController_ActionSheet.xib; sourceTree = "<group>"; };
-		8EA306EC79B492F2FBCF50FB5C24F8D2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B83589641F0D54D37633E1B6161C105 /* MSAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSAlertController-dummy.m"; sourceTree = "<group>"; };
+		8C6A121612E6436D722D41C32A1F0A8A /* MSAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSAlertController-umbrella.h"; sourceTree = "<group>"; };
 		9140EE3292E169C53C5CE17237915BF8 /* UIImage+BlurEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+BlurEffect.swift"; path = "SABlurImageView/UIImage+BlurEffect.swift"; sourceTree = "<group>"; };
-		94D6A0EAB2E4811DE9CD6F56E634C6CC /* MSAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSAlertController.m; sourceTree = "<group>"; };
-		95E8F1F176179F96806C697E5EF76994 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		991E1AC65D8F223723695DD733567DBC /* MSAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSAlertController.m; sourceTree = "<group>"; };
 		AE4B7F928BA21A51F1D6714DE7784125 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		AE57EC5ADE3C1ACD14B45F5A8432A31A /* CATransition+Closure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CATransition+Closure.swift"; path = "SABlurImageView/CATransition+Closure.swift"; sourceTree = "<group>"; };
 		AF0C251921C9BC40AA0785F1E4CA4D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B0B4CB398A3C181732E1D9AAC5ECA770 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B89283282D1F505B8103EDB26E3C766A /* SACollectionViewVerticalScalingFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SACollectionViewVerticalScalingFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B851803481D96D21C50BB2D871E8DD83 /* MSAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSAlertController-prefix.pch"; sourceTree = "<group>"; };
+		B8EC6196F63D38C1842DAC903821D44B /* MSAlertController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSAlertController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9074E9F97BCCC8CDE319401618701FC /* SACollectionViewVerticalScalingFlowLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SACollectionViewVerticalScalingFlowLayout.xcconfig; sourceTree = "<group>"; };
 		B9BFC8EE0D3638B7F97148A5E8294340 /* SACollectionViewVerticalScalingFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SACollectionViewVerticalScalingFlowLayout-prefix.pch"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C1BC0205608B55D8864B9556F997941D /* SABlurImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SABlurImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA31873D7742260EC1CB7A68F422B441 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB5020E90A1FB8DA4674389C7B830E9 /* MisterFusion.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MisterFusion.modulemap; sourceTree = "<group>"; };
+		CAD83C1C895358EC2ED587625E625D9A /* MSAlertController_ActionSheet.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSAlertController_ActionSheet.xib; sourceTree = "<group>"; };
 		CBAD814A80ED0E9A0638A2009A8B4470 /* MisterFusion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MisterFusion.swift; path = MisterFusion/MisterFusion.swift; sourceTree = "<group>"; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D2D0E48657A8894DBCBD1755C0E2A82B /* SABlurImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SABlurImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D397DFAD4D81CE3FA3F392FE70A2DEF0 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		E0631CFC19985E2BD41225DF55CD3BF2 /* MisterFusion.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MisterFusion.xcconfig; sourceTree = "<group>"; };
 		E2AD459A1C34330366AF574AD4D6F27D /* SACollectionViewVerticalScalingFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SACollectionViewVerticalScalingFlowLayout.swift; path = SACollectionViewVerticalScalingFlowLayout/SACollectionViewVerticalScalingFlowLayout.swift; sourceTree = "<group>"; };
-		E71E9BBB75AC0E172D5010612B2CF04B /* MSAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSAlertController-prefix.pch"; sourceTree = "<group>"; };
+		E2C917C2611B76EF0E43C04FB2EA371C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0FD8E530236D228F9F46CD00D3B30E /* SABlurImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SABlurImageView-dummy.m"; sourceTree = "<group>"; };
@@ -147,28 +160,28 @@
 		EED3E4F0FC4B22F6F377C953B882686C /* SABlurImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SABlurImageView.xcconfig; sourceTree = "<group>"; };
 		F2FBD69E9448615F860353A122A6BC32 /* Array+MisterFusion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+MisterFusion.swift"; path = "MisterFusion/Array+MisterFusion.swift"; sourceTree = "<group>"; };
 		F4809E90BF27E4EA5B3EBC3823351F4B /* SABlurImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SABlurImageView-prefix.pch"; sourceTree = "<group>"; };
-		F9EEB8183BCE1008A51107743F960CD5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F880143968E85542D804661950EDB25B /* MSAlertHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MSAlertHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1AA6246BF6CFE638FAE8B89401C9B65C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F00297607B8EB551DF53C4AB98A25A /* Foundation.framework in Frameworks */,
+				A7BCF101FAC2B6B15B91B3FEF966FC0F /* MisterFusion.framework in Frameworks */,
+				17680372351FAFAAA738A14B1EE4D22C /* QuartzCore.framework in Frameworks */,
+				9935D6B5BF135D7C889D06FFFB448429 /* SABlurImageView.framework in Frameworks */,
+				F1AC005458EEF4F800CFB55D9F0C5E5B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		54C77337B476137FCBAD1AB008AFCC03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EE6E4183E3F9C468C244DAE05651626A /* Foundation.framework in Frameworks */,
 				B2AC28704B5159D1E6C0642B3FEA19ED /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		866E6CBE6BBF17B13739E5F3A5D08EF3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				751F809B308BFD2619306D65D391D00E /* Foundation.framework in Frameworks */,
-				FECC5B3C7A20BACEBFD255DE61C101C2 /* MisterFusion.framework in Frameworks */,
-				6EED8F7F12A5882787C4EC6C6BEF6413 /* QuartzCore.framework in Frameworks */,
-				2B92EBAB8D2F0B584E0B80CDA81DA777 /* SABlurImageView.framework in Frameworks */,
-				1331C5A61BB78660BB17D6A2DB4FA39A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +201,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3E6EEB6ACBBDC781A530172BD406304 /* Frameworks */ = {
+		AF05742DE71AE77B6C5959C7646295E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90697E516B043547D22D2684597EA047 /* Accelerate.framework in Frameworks */,
-				E62D13072DEBBCC832E637860B3B40E6 /* Foundation.framework in Frameworks */,
-				FD29BEFDB7B8B18741FF4E21154A0ED2 /* QuartzCore.framework in Frameworks */,
-				EB94D7AE205CBBF015F0FEDFB58D7FDC /* UIKit.framework in Frameworks */,
+				BD39AFF8DBA29F4863F976483E6C9836 /* Accelerate.framework in Frameworks */,
+				E65C6537938BE826F74A9765EE2CA3C4 /* Foundation.framework in Frameworks */,
+				DE57A98D5D629F7B7B658D18D0A3E6FA /* QuartzCore.framework in Frameworks */,
+				B7BE37098FCDB19E13F65E6EC048E56C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0A37661B9AFCA4A0F7584C74EE4E145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,9 +225,18 @@
 		0498A26122ADB65F927C16A8DB7E9C0E /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CBBBB3B040638218BF88F8EEF974BD4E /* MSAlertController */,
+				C6C10F4AC1F35633628986E471E19B7C /* MSAlertController */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		06E6B5070216A9A1303BD6D86F9FD516 /* MSAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				8280A4E9E27E98D2A485975F5D49AD1A /* MSAlertController.xib */,
+				CAD83C1C895358EC2ED587625E625D9A /* MSAlertController_ActionSheet.xib */,
+			);
+			path = MSAlertController;
 			sourceTree = "<group>";
 		};
 		13FDD6861202B414046735E839288CC2 /* Pods */ = {
@@ -218,14 +247,6 @@
 				288DA84BEE7ADD666B44A15D7D6AACB2 /* SACollectionViewVerticalScalingFlowLayout */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		1508ABB356B21775E1050F053A7B2BD5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D107D3B44828229FA927D5845A3E3FE5 /* MSAlertController */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		288DA84BEE7ADD666B44A15D7D6AACB2 /* SACollectionViewVerticalScalingFlowLayout */ = {
@@ -247,6 +268,28 @@
 				89CA43F77E9B9F9ACF8E65C996CAEF9F /* Support Files */,
 			);
 			path = SABlurImageView;
+			sourceTree = "<group>";
+		};
+		338DC83F57466E0678A1A7151D49C1FA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				06E6B5070216A9A1303BD6D86F9FD516 /* MSAlertController */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		41B2E5B7C5FC81EB835CBD15C845CE8D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA31873D7742260EC1CB7A68F422B441 /* Info.plist */,
+				66FF5A6895696CCB21BD8D5C23A4DFDC /* MSAlertController.modulemap */,
+				096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */,
+				8B83589641F0D54D37633E1B6161C105 /* MSAlertController-dummy.m */,
+				B851803481D96D21C50BB2D871E8DD83 /* MSAlertController-prefix.pch */,
+				8C6A121612E6436D722D41C32A1F0A8A /* MSAlertController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "MSAlertControllerExample/Pods/Target Support Files/MSAlertController";
 			sourceTree = "<group>";
 		};
 		4B3C5676ECC99763AF225284EC212229 /* Support Files */ = {
@@ -299,23 +342,9 @@
 				0498A26122ADB65F927C16A8DB7E9C0E /* Development Pods */,
 				963D30A0994E2721501FA7BDFF8ABC50 /* Frameworks */,
 				13FDD6861202B414046735E839288CC2 /* Pods */,
-				C2630B47BF812BA2660E39514B29A4FA /* Products */,
+				B0FF8392E3E40DA888BF3BED6A8384B2 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		880750127F81E1941AC415DD33FCE4B9 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F9EEB8183BCE1008A51107743F960CD5 /* Info.plist */,
-				5A2DD79BEB85C55190ECDAA85DE6B605 /* MSAlertController.modulemap */,
-				111E948B23A80224D0FDDBFFB0C2CD61 /* MSAlertController.xcconfig */,
-				0FFA8E186DB26E3123E0006B1E463302 /* MSAlertController-dummy.m */,
-				E71E9BBB75AC0E172D5010612B2CF04B /* MSAlertController-prefix.pch */,
-				79159B080A577AE1C956BC6FA4854E5D /* MSAlertController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "MSAlertControllerExample/Pods/Target Support Files/MSAlertController";
 			sourceTree = "<group>";
 		};
 		89CA43F77E9B9F9ACF8E65C996CAEF9F /* Support Files */ = {
@@ -356,6 +385,19 @@
 			path = "../Target Support Files/MisterFusion";
 			sourceTree = "<group>";
 		};
+		B0FF8392E3E40DA888BF3BED6A8384B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49B21F1DAFBAA8B01C82BAECD5335AB7 /* MisterFusion.framework */,
+				B8EC6196F63D38C1842DAC903821D44B /* MSAlertController.bundle */,
+				6611A24B2A08DD5931D360AFBC10474D /* MSAlertController.framework */,
+				E2C917C2611B76EF0E43C04FB2EA371C /* Pods.framework */,
+				C1BC0205608B55D8864B9556F997941D /* SABlurImageView.framework */,
+				0AB85460F6AA4E965FAC152C41F7CFEE /* SACollectionViewVerticalScalingFlowLayout.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,24 +406,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C2630B47BF812BA2660E39514B29A4FA /* Products */ = {
+		C6C10F4AC1F35633628986E471E19B7C /* MSAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				95E8F1F176179F96806C697E5EF76994 /* MisterFusion.framework */,
-				31D28771375EEE3373EE905F7F2BBA28 /* MSAlertController.framework */,
-				8EA306EC79B492F2FBCF50FB5C24F8D2 /* Pods.framework */,
-				D2D0E48657A8894DBCBD1755C0E2A82B /* SABlurImageView.framework */,
-				B89283282D1F505B8103EDB26E3C766A /* SACollectionViewVerticalScalingFlowLayout.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CBBBB3B040638218BF88F8EEF974BD4E /* MSAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				DDF90015AD9CD9330B3C18ABD2469999 /* MSAlertController */,
-				1508ABB356B21775E1050F053A7B2BD5 /* Resources */,
-				880750127F81E1941AC415DD33FCE4B9 /* Support Files */,
+				D83A645AB0964CBB75D7FB9FEAABAA4B /* MSAlertController */,
+				338DC83F57466E0678A1A7151D49C1FA /* Resources */,
+				41B2E5B7C5FC81EB835CBD15C845CE8D /* Support Files */,
 			);
 			name = MSAlertController;
 			path = ../..;
@@ -397,21 +427,14 @@
 			path = MisterFusion;
 			sourceTree = "<group>";
 		};
-		D107D3B44828229FA927D5845A3E3FE5 /* MSAlertController */ = {
+		D83A645AB0964CBB75D7FB9FEAABAA4B /* MSAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				21E1F76E4AD1216DC84FC475EB0581A9 /* MSAlertController.xib */,
-				8A27A082C6B8FE8174F6FF0B2EAD6FEF /* MSAlertController_ActionSheet.xib */,
-			);
-			path = MSAlertController;
-			sourceTree = "<group>";
-		};
-		DDF90015AD9CD9330B3C18ABD2469999 /* MSAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				0863C63232395B79800BB3F6A517A0E0 /* MSAlertController.h */,
-				94D6A0EAB2E4811DE9CD6F56E634C6CC /* MSAlertController.m */,
-				D397DFAD4D81CE3FA3F392FE70A2DEF0 /* UIImage+Extensions.swift */,
+				7083EEA001684E73373C980EAB75DBD4 /* MSAlertController.h */,
+				991E1AC65D8F223723695DD733567DBC /* MSAlertController.m */,
+				F880143968E85542D804661950EDB25B /* MSAlertHeaderView.swift */,
+				01A3D2D473E4AEE5204526CFBE29B03A /* UIImage+Extensions.swift */,
+				370C55801C53361E00D9369A /* MSAlertAction.swift */,
 			);
 			path = MSAlertController;
 			sourceTree = "<group>";
@@ -419,15 +442,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		065AF8EBF283DBCA1FE42A9BE242C21E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5CD1E1F672603A2BE735721DD7810DBE /* MSAlertController-umbrella.h in Headers */,
-				B0EE67A83162F73437D59E744C32C19B /* MSAlertController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1D914E449D0D5929AA61198F41DC63F3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,17 +466,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75F94309518D0687239EAA5D3EF97F5B /* Headers */ = {
+		6A922C3170006C452921E9E8B46DF075 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				489DD65EB6168AA956DBFB14669D705B /* SABlurImageView-umbrella.h in Headers */,
+				7DE675FCD93558216E85643788AE74A5 /* MSAlertController-umbrella.h in Headers */,
+				CDE45F4FA711563B5863B83E5FCAE9AC /* MSAlertController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		838D177C754C9BAEE75AB34A4456FFE7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CFCA4077AF72A5BE93FC0122769F705 /* SABlurImageView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		27FD7A5C07C9E2B29F988306DE49BE33 /* MSAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26EC8AA2411BC6628DFC49CFF4DE5411 /* Build configuration list for PBXNativeTarget "MSAlertController" */;
+			buildPhases = (
+				119B6B2F5146E4D3BB9DB74CF9B87197 /* Sources */,
+				1AA6246BF6CFE638FAE8B89401C9B65C /* Frameworks */,
+				B9A274D89ABA953CEA0AD8BE7EFDCA63 /* Resources */,
+				6A922C3170006C452921E9E8B46DF075 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEF5B331AB120472B136DC3B67D94CFA /* PBXTargetDependency */,
+				DA0CFA4D7668B9C743CB8C91196DAD2A /* PBXTargetDependency */,
+				FCB8DE573B514EF3C6838316EDBCEB63 /* PBXTargetDependency */,
+			);
+			name = MSAlertController;
+			productName = MSAlertController;
+			productReference = 6611A24B2A08DD5931D360AFBC10474D /* MSAlertController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		49507E37B812CF21E401EFD76DDA182B /* SACollectionViewVerticalScalingFlowLayout */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE1A75E8E6B3F2C83EF2FDA920C3E9B /* Build configuration list for PBXNativeTarget "SACollectionViewVerticalScalingFlowLayout" */;
@@ -477,8 +521,42 @@
 			);
 			name = SACollectionViewVerticalScalingFlowLayout;
 			productName = SACollectionViewVerticalScalingFlowLayout;
-			productReference = B89283282D1F505B8103EDB26E3C766A /* SACollectionViewVerticalScalingFlowLayout.framework */;
+			productReference = 0AB85460F6AA4E965FAC152C41F7CFEE /* SACollectionViewVerticalScalingFlowLayout.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		87E20BE7B1AD76D8ABF124A905973E90 /* SABlurImageView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83D33A3296A6C1D89BB60A31E47E23B7 /* Build configuration list for PBXNativeTarget "SABlurImageView" */;
+			buildPhases = (
+				AD720C67AC73CA03974DF49EECD3528D /* Sources */,
+				AF05742DE71AE77B6C5959C7646295E4 /* Frameworks */,
+				838D177C754C9BAEE75AB34A4456FFE7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SABlurImageView;
+			productName = SABlurImageView;
+			productReference = C1BC0205608B55D8864B9556F997941D /* SABlurImageView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9975603F83B26E1F1F235296749F71F7 /* MSAlertController-MSAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EAEFB4D5AC52F3A1A2BC102555A9047 /* Build configuration list for PBXNativeTarget "MSAlertController-MSAlertController" */;
+			buildPhases = (
+				34D91407D3E870BEF934CF4CF0B5AA57 /* Sources */,
+				E0A37661B9AFCA4A0F7584C74EE4E145 /* Frameworks */,
+				760FCD71F6BAD3DB86DB88ED816D31CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MSAlertController-MSAlertController";
+			productName = "MSAlertController-MSAlertController";
+			productReference = B8EC6196F63D38C1842DAC903821D44B /* MSAlertController.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 		9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */ = {
 			isa = PBXNativeTarget;
@@ -494,7 +572,7 @@
 			);
 			name = MisterFusion;
 			productName = MisterFusion;
-			productReference = 95E8F1F176179F96806C697E5EF76994 /* MisterFusion.framework */;
+			productReference = 49B21F1DAFBAA8B01C82BAECD5335AB7 /* MisterFusion.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C20B57301A4D998B5C224848E7AD5A4D /* Pods */ = {
@@ -515,44 +593,7 @@
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 8EA306EC79B492F2FBCF50FB5C24F8D2 /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C51452213515080BF38DBEC7265344DE /* SABlurImageView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DBCE2CAEE26AD50ABBB4859E8B4B3CA0 /* Build configuration list for PBXNativeTarget "SABlurImageView" */;
-			buildPhases = (
-				9534771BF8F680EFBF94DC3C69E86394 /* Sources */,
-				F3E6EEB6ACBBDC781A530172BD406304 /* Frameworks */,
-				75F94309518D0687239EAA5D3EF97F5B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SABlurImageView;
-			productName = SABlurImageView;
-			productReference = D2D0E48657A8894DBCBD1755C0E2A82B /* SABlurImageView.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E62204A9C68054DC8C08EF082912CF69 /* MSAlertController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 17D7E60CD6A19393BC34CD30BA46FD4A /* Build configuration list for PBXNativeTarget "MSAlertController" */;
-			buildPhases = (
-				D75BC9BB379B064437DED47E3D937993 /* Sources */,
-				866E6CBE6BBF17B13739E5F3A5D08EF3 /* Frameworks */,
-				065AF8EBF283DBCA1FE42A9BE242C21E /* Headers */,
-				50714270243DB4C7EE114F6E92779044 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				62DA7FDFC3FDEB5B05505B4A73B69C64 /* PBXTargetDependency */,
-				BD1A72D8E829C4F94B426A3F5D4E8323 /* PBXTargetDependency */,
-			);
-			name = MSAlertController;
-			productName = MSAlertController;
-			productReference = 31D28771375EEE3373EE905F7F2BBA28 /* MSAlertController.framework */;
+			productReference = E2C917C2611B76EF0E43C04FB2EA371C /* Pods.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -572,37 +613,65 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C2630B47BF812BA2660E39514B29A4FA /* Products */;
+			productRefGroup = B0FF8392E3E40DA888BF3BED6A8384B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */,
-				E62204A9C68054DC8C08EF082912CF69 /* MSAlertController */,
+				27FD7A5C07C9E2B29F988306DE49BE33 /* MSAlertController */,
+				9975603F83B26E1F1F235296749F71F7 /* MSAlertController-MSAlertController */,
 				C20B57301A4D998B5C224848E7AD5A4D /* Pods */,
-				C51452213515080BF38DBEC7265344DE /* SABlurImageView */,
+				87E20BE7B1AD76D8ABF124A905973E90 /* SABlurImageView */,
 				49507E37B812CF21E401EFD76DDA182B /* SACollectionViewVerticalScalingFlowLayout */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		50714270243DB4C7EE114F6E92779044 /* Resources */ = {
+		760FCD71F6BAD3DB86DB88ED816D31CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F14F591C103A3C813FB36B030A6B029 /* MSAlertController.xib in Resources */,
-				869C02F14A2290CCCCF0F3B6D19F1085 /* MSAlertController_ActionSheet.xib in Resources */,
+				02AA10859F5BAC7F7CE4DDBC7EDF00D6 /* MSAlertController.xib in Resources */,
+				66D81D6774EB4AF81257B1883118CB6D /* MSAlertController_ActionSheet.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9A274D89ABA953CEA0AD8BE7EFDCA63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8916F1359A23F035D7BCBEB48CEF8EA /* MSAlertController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		119B6B2F5146E4D3BB9DB74CF9B87197 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62BB02E42268E42997C4D7A66375D750 /* MSAlertController-dummy.m in Sources */,
+				370C55811C53361E00D9369A /* MSAlertAction.swift in Sources */,
+				7FFD06319549D731351136BFEAF737CB /* MSAlertController.m in Sources */,
+				1680DB139DCBAD7CBB489A8A92CD084E /* MSAlertHeaderView.swift in Sources */,
+				2691C04D796BF301550002D5FD00BE57 /* UIImage+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3072B54146DE870166A772D34E936068 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90A3617A3C1D08686E47D2BD38CF2294 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34D91407D3E870BEF934CF4CF0B5AA57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,17 +685,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9534771BF8F680EFBF94DC3C69E86394 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14255D8362AFC2D3611757450E29EF23 /* CATransition+Closure.swift in Sources */,
-				46BEF9318B0276FB4741330306CBF864 /* SABlurImageView-dummy.m in Sources */,
-				C5E49ADAE06A22830E6EB0B3C7F0AF85 /* SABlurImageView.swift in Sources */,
-				028AC5AF3C873822B8EC20197DA28C78 /* UIImage+BlurEffect.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		98819D7144BFC0B905DD9D19287ACEEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -637,13 +695,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D75BC9BB379B064437DED47E3D937993 /* Sources */ = {
+		AD720C67AC73CA03974DF49EECD3528D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E86A5E25B70813D07F25A5B8931DAD5 /* MSAlertController-dummy.m in Sources */,
-				E8622C749D83ECB2BB7F5EB4C49920A8 /* MSAlertController.m in Sources */,
-				03F5A5B7E990A6004D474F5888FDF9EB /* UIImage+Extensions.swift in Sources */,
+				B235237DA529C3A8185B665A7B2556A1 /* CATransition+Closure.swift in Sources */,
+				CE39BC96B7FCD543B2FAE335907DDAE9 /* SABlurImageView-dummy.m in Sources */,
+				204A7E9F90355FE55B8A53C42434203C /* SABlurImageView.swift in Sources */,
+				70CD210D936B31EE47F65009A9DF1C62 /* UIImage+BlurEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,26 +712,14 @@
 		1E626DA08FD4068A50B2C285CA98F208 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MSAlertController;
-			target = E62204A9C68054DC8C08EF082912CF69 /* MSAlertController */;
+			target = 27FD7A5C07C9E2B29F988306DE49BE33 /* MSAlertController */;
 			targetProxy = 93D0FB1A655C589572DEA084CAC54850 /* PBXContainerItemProxy */;
 		};
 		363C0BC3D4C61E005FF6CB086E886363 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SABlurImageView;
-			target = C51452213515080BF38DBEC7265344DE /* SABlurImageView */;
+			target = 87E20BE7B1AD76D8ABF124A905973E90 /* SABlurImageView */;
 			targetProxy = A21F5B83B32986232C096DB98524F669 /* PBXContainerItemProxy */;
-		};
-		62DA7FDFC3FDEB5B05505B4A73B69C64 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MisterFusion;
-			target = 9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */;
-			targetProxy = AAF2FB5062C3FE9AB39CA23EAECCF7D1 /* PBXContainerItemProxy */;
-		};
-		BD1A72D8E829C4F94B426A3F5D4E8323 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SABlurImageView;
-			target = C51452213515080BF38DBEC7265344DE /* SABlurImageView */;
-			targetProxy = 07BE8B1F862274C67BB889F97B85B13C /* PBXContainerItemProxy */;
 		};
 		CA431A4BD987B96386F6793DC407C160 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -680,11 +727,29 @@
 			target = 49507E37B812CF21E401EFD76DDA182B /* SACollectionViewVerticalScalingFlowLayout */;
 			targetProxy = A32B470F834BF990EECC4658493FC19E /* PBXContainerItemProxy */;
 		};
+		CEF5B331AB120472B136DC3B67D94CFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MSAlertController-MSAlertController";
+			target = 9975603F83B26E1F1F235296749F71F7 /* MSAlertController-MSAlertController */;
+			targetProxy = 2E193A1E701A0CAA53DC1F22EEAE02A3 /* PBXContainerItemProxy */;
+		};
+		DA0CFA4D7668B9C743CB8C91196DAD2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MisterFusion;
+			target = 9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */;
+			targetProxy = 329DD4946EC9E2E12980F29F049C17DF /* PBXContainerItemProxy */;
+		};
 		F58A85EBCF26D21C4C6EEDB56DA03B67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MisterFusion;
 			target = 9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */;
 			targetProxy = 08CA32100301577B602DE5EB43A5AB90 /* PBXContainerItemProxy */;
+		};
+		FCB8DE573B514EF3C6838316EDBCEB63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SABlurImageView;
+			target = 87E20BE7B1AD76D8ABF124A905973E90 /* SABlurImageView */;
+			targetProxy = 3EB1AA00CC3B55DA83819509FCB1E9DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -717,37 +782,21 @@
 			};
 			name = Debug;
 		};
-		0D5FEECAFD4622F46A421512B82AE17E /* Debug */ = {
+		12292E97220532E181B89BB5795EBC59 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EED3E4F0FC4B22F6F377C953B882686C /* SABlurImageView.xcconfig */;
+			baseConfigurationReference = 096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SABlurImageView/SABlurImageView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SABlurImageView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SABlurImageView/SABlurImageView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SABlurImageView;
+				PRODUCT_NAME = MSAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
-			name = Debug;
+			name = Release;
 		};
-		1EFACF546F212869551E6AB24003036A /* Release */ = {
+		19CF5A383A83DB26FBF30D94A73D7251 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 111E948B23A80224D0FDDBFFB0C2CD61 /* MSAlertController.xcconfig */;
+			baseConfigurationReference = 096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -762,15 +811,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MSAlertController/MSAlertController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = MSAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		21F0B8E9BB944D2EDC237B82946A869B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -803,7 +853,7 @@
 			};
 			name = Debug;
 		};
-		46503C7604E64DF4BD2750513FE82EBE /* Release */ = {
+		28A57CEF02BB68BBB87F26C315333261 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EED3E4F0FC4B22F6F377C953B882686C /* SABlurImageView.xcconfig */;
 			buildSettings = {
@@ -829,6 +879,61 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		5A59AD9B132756927AB162527901088F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSAlertController/MSAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSAlertController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSAlertController/MSAlertController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MSAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		642D6DDA4CEDC4CBAB3964B76231F5E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED3E4F0FC4B22F6F377C953B882686C /* SABlurImageView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SABlurImageView/SABlurImageView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SABlurImageView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SABlurImageView/SABlurImageView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SABlurImageView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		6CFD1279A9C556FEE820F0A1E56E166B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -887,6 +992,18 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		8A1FAB6CE616D123ADC389FD13465E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 096D80B37458579F71F91738E80B32E7 /* MSAlertController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = MSAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
 		};
 		A3CAA01CDB648FD1828D3A6D0A19C1FD /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -981,34 +1098,6 @@
 			};
 			name = Release;
 		};
-		DCCF27C978B670AA5579B5F581C3B881 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 111E948B23A80224D0FDDBFFB0C2CD61 /* MSAlertController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSAlertController/MSAlertController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSAlertController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSAlertController/MSAlertController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MSAlertController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1046,11 +1135,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17D7E60CD6A19393BC34CD30BA46FD4A /* Build configuration list for PBXNativeTarget "MSAlertController" */ = {
+		26EC8AA2411BC6628DFC49CFF4DE5411 /* Build configuration list for PBXNativeTarget "MSAlertController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCCF27C978B670AA5579B5F581C3B881 /* Debug */,
-				1EFACF546F212869551E6AB24003036A /* Release */,
+				19CF5A383A83DB26FBF30D94A73D7251 /* Debug */,
+				5A59AD9B132756927AB162527901088F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1082,20 +1171,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7EAEFB4D5AC52F3A1A2BC102555A9047 /* Build configuration list for PBXNativeTarget "MSAlertController-MSAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A1FAB6CE616D123ADC389FD13465E69 /* Debug */,
+				12292E97220532E181B89BB5795EBC59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83D33A3296A6C1D89BB60A31E47E23B7 /* Build configuration list for PBXNativeTarget "SABlurImageView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				642D6DDA4CEDC4CBAB3964B76231F5E7 /* Debug */,
+				28A57CEF02BB68BBB87F26C315333261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D527E849301E62CDDB55A973DEBA607C /* Build configuration list for PBXNativeTarget "MisterFusion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A84E3C077DFDF0A259DD770FB7B2F29 /* Debug */,
 				BB9D8406934875C5E574A0219F10015A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DBCE2CAEE26AD50ABBB4859E8B4B3CA0 /* Build configuration list for PBXNativeTarget "SABlurImageView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0D5FEECAFD4622F46A421512B82AE17E /* Debug */,
-				46503C7604E64DF4BD2750513FE82EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

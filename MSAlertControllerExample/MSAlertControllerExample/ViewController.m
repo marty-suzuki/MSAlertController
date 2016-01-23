@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "MSAlertController.h"
-#import "SACollectionViewVerticalScalingFlowLayout.h"
-#import "SACollectionViewVerticalScalingCell.h"
+#import <MSAlertController/MSAlertController.h>
+#import <MSAlertController/MSAlertController-Swift.h>
+#import <SACollectionViewVerticalScalingFlowLayout/SACollectionViewVerticalScalingFlowLayout-Swift.h>
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -38,8 +38,8 @@ static NSArray *_imageNames = nil;
     
     // Do any additional setup after loading the view, typically from a nib.
     SACollectionViewVerticalScalingFlowLayout *layout = [[SACollectionViewVerticalScalingFlowLayout alloc] init];
-    layout.scaleMode = SACollectionViewVerticalScalingFlowLayoutScaleModeHard;
-    layout.alphaMode = SACollectionViewVerticalScalingFlowLayoutAlphaModeEasy;
+    //layout.scaleMode = SACollectionViewVerticalScalingFlowLayoutScaleModeHard;
+    //layout.alphaMode = SACollectionViewVerticalScalingFlowLayoutAlphaModeEasy;
     self.collectionView.collectionViewLayout = layout;
     
     [self.collectionView registerClass:[SACollectionViewVerticalScalingCell class] forCellWithReuseIdentifier:kCellIdentifier];

@@ -9,30 +9,17 @@
 #import "MSAlertController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Accelerate/Accelerate.h>
+#import <MSAlertController/MSAlertController-Swift.h>
+#import <SABlurImageView/SABlurImageView-Swift.h>
 
 #pragma mark - UIImage Category
 @interface UIImage (Extension)
 
-+ (UIImage *)imageWithColor:(UIColor *)color;
 + (UIImage *)screenshot;
-- (UIImage *)bluredImage;
-- (void)bluerdImageWithCompletion:(void(^)(UIImage *bluerdImage))completion;
 
 @end
 
 @implementation UIImage (Extension)
-
-+ (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect frame = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContextWithOptions(frame.size, YES, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, color.CGColor);
-    CGContextFillRect(context, frame);
-    CGContextSaveGState(context);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
 
 + (UIImage *)screenshot {
     CGSize imageSize = [UIScreen mainScreen].bounds.size;
@@ -74,56 +61,6 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-}
-
-- (UIImage *)bluredImage {
-    uint32_t boxSize = 0.15 * 100;
-    boxSize = boxSize - (boxSize % 2) + 1;
-    CGImageRef image = self.CGImage;
-    vImage_Buffer inBuffer, outBuffer;
-    vImage_Error error;
-    void *pixelBuffer;
-    CGDataProviderRef inProvider = CGImageGetDataProvider(image);
-    CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
-    inBuffer.width = CGImageGetWidth(image);
-    inBuffer.height = CGImageGetHeight(image);
-    inBuffer.rowBytes = CGImageGetBytesPerRow(image);
-    inBuffer.data = (void *)CFDataGetBytePtr(inBitmapData);
-    
-    pixelBuffer = malloc(CGImageGetBytesPerRow(image) * CGImageGetHeight(image));
-    outBuffer.data = pixelBuffer;
-    outBuffer.width = CGImageGetWidth(image);
-    outBuffer.height = CGImageGetHeight(image);
-    outBuffer.rowBytes = CGImageGetBytesPerRow(image);
-    
-    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef ctx = CGBitmapContextCreate(outBuffer.data, outBuffer.width, outBuffer.height, 8, outBuffer.rowBytes, colorSpace, CGImageGetBitmapInfo(image));
-    CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
-    UIImage *bluredImage = [UIImage imageWithCGImage:imageRef];
-    
-    CGContextRelease(ctx);
-    CGColorSpaceRelease(colorSpace);
-    
-    free(pixelBuffer);
-    CFRelease(inBitmapData);
-    
-    CGColorSpaceRelease(colorSpace);
-    CGImageRelease(imageRef);
-    
-    return bluredImage;
-}
-
-- (void)bluerdImageWithCompletion:(void(^)(UIImage *bluerdImage))completion {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        UIImage *bluredImage = self.bluredImage;
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            if (completion) {
-                completion(bluredImage);
-            }
-        });
-    });
 }
 
 @end
@@ -245,81 +182,6 @@ static CGFloat const kAnimationDuration = 0.25f;
 #pragma mark - MSAlertAction Class
 NSString *const kAlertActionChangeEnabledProperty = @"kAlertActionChangeEnabledProperty";
 
-@interface MSAlertAction ()
-
-typedef void (^MSAlertActionHandler)(MSAlertAction *action);
-
-@property (strong, nonatomic) MSAlertActionHandler handler;
-@property (copy, nonatomic) NSString *title;
-@property (assign, nonatomic) MSAlertActionStyle style;
-
-@end
-
-@implementation MSAlertAction
-
-static NSDictionary *_defaultFonts = nil;
-static NSDictionary *_defaultColors = nil;
-
-+ (instancetype)actionWithTitle:(NSString *)title style:(MSAlertActionStyle)style handler:(MSAlertActionHandler)handler {
-    return [[[self class] alloc] initWithTitle:title style:style handler:handler];
-}
-
-- (id)initWithTitle:(NSString *)title style:(MSAlertActionStyle)style handler:(MSAlertActionHandler)handler {
-    self = [super init];
-    if (self) {
-        static dispatch_once_t token;
-        dispatch_once(&token, ^(void) {
-            _defaultFonts = @{
-                              @(MSAlertActionStyleDestructive): [UIFont fontWithName:@"HelveticaNeue" size:18.0f],
-                              @(MSAlertActionStyleDefault): [UIFont fontWithName:@"HelveticaNeue" size:18.0f],
-                              @(MSAlertActionStyleCancel): [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0f]
-                              };
-            
-            _defaultColors = @{
-                               @(MSAlertActionStyleDestructive): [UIColor colorWithRed:1.0f green:59.0f/255.0f blue:48.0f/255.0f alpha:1.0f],
-                               @(MSAlertActionStyleDefault): [UIColor colorWithRed:0.0f green:122.0f/255.0f blue:1.0f alpha:1.0f],
-                               @(MSAlertActionStyleCancel): [UIColor colorWithRed:0.0f green:122.0f/255.0f blue:1.0f alpha:1.0f]
-                               };
-        });
-        
-        
-        self.handler = handler;
-        self.style = style;
-        self.title = title;
-        self.font = [self.defaultFonts objectForKey:@(style)];
-        self.titleColor = [self.defaultColors objectForKey:@(style)];
-        self.enabled = YES;
-    }
-    return self;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    MSAlertAction *clone = [[[self class] allocWithZone:zone] initWithTitle:_title style:_style handler:_handler];
-    self.font = [_font copyWithZone:zone];
-    self.titleColor = [_titleColor copyWithZone:zone];
-    self.enabled = _enabled;
-    return clone;
-}
-
-- (void)setEnabled:(BOOL)enabled {
-    BOOL previousValue = self.enabled;
-    _enabled = enabled;
-    if (previousValue != self.enabled) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAlertActionChangeEnabledProperty object:nil];
-    }
-}
-
-- (NSDictionary *)defaultFonts {
-    return _defaultFonts;
-}
-
-- (NSDictionary *)defaultColors {
-    return _defaultColors;
-}
-
-@end
-
-
 #pragma mark - MSAlertController Class
 @interface MSAlertController () <UIViewControllerTransitioningDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UIColor *disabledColor;
@@ -332,7 +194,7 @@ static NSDictionary *_defaultColors = nil;
 @property (strong, nonatomic) UIButton *cancelButton;
 
 // Views on Alert Controller
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet SABlurImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic, readwrite) IBOutlet UIView *tableViewContainer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -342,8 +204,9 @@ static NSDictionary *_defaultColors = nil;
 @property (strong, nonatomic) IBOutlet UIView *tableViewHeader;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (weak, nonatomic) IBOutlet UIView *textFieldContentView;
 
+
+@property (strong, nonatomic) MSAlertHeaderView *alertHeaderView;
 
 // Constraints of Table View Header
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *superviewTitleConstraint;
@@ -392,7 +255,8 @@ static CGFloat const kTextFieldWidth = 234.0f;
             break;
     }
     
-    self = [super initWithNibName:nibName bundle:nil];
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"MSAlertController" withExtension:@"bundle"];
+    self = [super initWithNibName:nibName bundle:[NSBundle bundleWithURL:url]];
     if (self) {
         self.transitioningDelegate = self;
         
@@ -459,6 +323,8 @@ static CGFloat const kTextFieldWidth = 234.0f;
     }
     self.tableView.scrollEnabled = NO;
     self.tableViewContainer.backgroundColor = [UIColor clearColor];
+    
+    self.alertHeaderView = [[MSAlertHeaderView alloc] init];
 }
 
 - (void)dealloc {
@@ -468,11 +334,9 @@ static CGFloat const kTextFieldWidth = 234.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    UIImage *screenshot = [UIImage screenshot];
+    self.imageView.image = [UIImage screenshot];
     if (self.enabledBlurEffect) {
-        self.imageView.image = screenshot.bluredImage;
-    } else {
-        self.imageView.image = screenshot;
+        [self.imageView addBlurEffect:20 times:3];
     }
     
     self.tableView.separatorColor = self.separatorColor;
@@ -490,12 +354,12 @@ static CGFloat const kTextFieldWidth = 234.0f;
     
     NSInteger textFieldCount = self.textFields.count;
     self.textFieldHeightConstraint.constant = textFieldCount * kTextFieldHeight;
-    self.textFieldContentView.backgroundColor = [UIColor whiteColor];
+    self.alertHeaderView.textFieldContentView.backgroundColor = [UIColor whiteColor];
     [self.textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger index, BOOL *stop) {
         CGRect textFieldFrame = textField.frame;
         textFieldFrame.origin.y = index * kTextFieldHeight;
         textField.frame = textFieldFrame;
-        [self.textFieldContentView addSubview:textField];
+        [self.alertHeaderView.textFieldContentView addSubview:textField];
     }];
     
     if (self.preferredStyle == MSAlertControllerStyleActionSheet) {

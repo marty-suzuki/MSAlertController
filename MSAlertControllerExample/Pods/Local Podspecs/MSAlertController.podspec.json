@@ -16,7 +16,11 @@
   },
   "requires_arc": true,
   "source_files": "MSAlertController/*.{h,m,swift}",
-  "resources": "MSAlertController/*.xib",
+  "resource_bundles": {
+    "MSAlertController": [
+      "MSAlertController/*.xib"
+    ]
+  },
   "frameworks": [
     "UIKit",
     "QuartzCore"

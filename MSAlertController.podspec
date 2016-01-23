@@ -20,7 +20,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'MSAlertController/*.{h,m,swift}'
-  s.resources    = 'MSAlertController/*.xib'
+  s.resource_bundles = {
+    'MSAlertController' => ['MSAlertController/*.xib']
+  }
   s.frameworks = 'UIKit', 'QuartzCore'
   s.dependency 'MisterFusion'
   s.dependency 'SABlurImageView'

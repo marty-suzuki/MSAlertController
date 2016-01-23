@@ -19,21 +19,7 @@ typedef NS_ENUM(NSInteger, MSAlertControllerStyle) {
     MSAlertControllerStyleAlert
 };
 
-@interface MSAlertAction : NSObject <NSCopying>
-
-@property (copy, nonatomic, readonly) NSString *title;
-@property (assign, nonatomic, readonly) MSAlertActionStyle style;
-@property (assign, nonatomic) BOOL enabled;
-@property (strong, nonatomic) UIColor *titleColor;
-@property (strong, nonatomic) UIFont *font;
-@property (strong, nonatomic) UIColor *normalColor;
-@property (strong, nonatomic) UIColor *highlightedColor;
-
-+ (instancetype)actionWithTitle:(NSString *)title style:(MSAlertActionStyle)style handler:(void (^)(MSAlertAction *action))handler;
-
-@end
-
-
+@class MSAlertAction;
 @interface MSAlertController : UIViewController
 
 // Views on Alert Controller
