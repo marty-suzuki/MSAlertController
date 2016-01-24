@@ -21,4 +21,23 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    
+    public class func screenshot() -> UIImage {
+        let application = UIApplication.sharedApplication()
+        let imageSize = application.keyWindow?.frame.size ?? .zero
+        
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 2)
+        let context = UIGraphicsGetCurrentContext()
+        application.windows.forEach {
+            CGContextSaveGState(context)
+            CGContextTranslateCTM(context, $0.center.x, $0.center.y)
+            CGContextConcatCTM(context, $0.window?.transform ?? CGAffineTransformIdentity)
+            CGContextTranslateCTM(context, -$0.bounds.size.width * $0.layer.anchorPoint.x, -$0.bounds.size.height * $0.layer.anchorPoint.y)
+            $0.drawViewHierarchyInRect($0.bounds , afterScreenUpdates: true)
+            CGContextRestoreGState(context)
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }
