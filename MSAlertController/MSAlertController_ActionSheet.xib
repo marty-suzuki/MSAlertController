@@ -9,20 +9,12 @@
             <connections>
                 <outlet property="backgroundView" destination="ID7-nn-zGP" id="kVb-5K-4An"/>
                 <outlet property="imageView" destination="eEb-0u-NEO" id="4LS-Sk-qUZ"/>
-                <outlet property="messageHeightConstraint" destination="t8h-IB-J7C" id="HJU-OL-s9g"/>
-                <outlet property="messageLabel" destination="CWw-n3-p1H" id="KgC-YJ-isP"/>
-                <outlet property="messageSuperviewConstraint" destination="dU4-Xc-A1O" id="Yu5-hu-4XZ"/>
-                <outlet property="superviewTitleConstraint" destination="Hzj-7g-NfL" id="Hfn-D4-BaL"/>
                 <outlet property="tableView" destination="fbC-Z7-Kat" id="tSG-md-tko"/>
                 <outlet property="tableViewBottomSpaceConstraint" destination="GHm-mX-Dgx" id="2OW-1W-wwu"/>
                 <outlet property="tableViewContainer" destination="xgv-az-EjM" id="Y4i-r1-Ob5"/>
                 <outlet property="tableViewContainerHeightConstraint" destination="mgB-hR-rZs" id="SX0-Sz-Re3"/>
                 <outlet property="tableViewContainerWidthConstraint" destination="icZ-fz-FE7" id="5f3-Vu-EqX"/>
                 <outlet property="tableViewContarinerSuperviewConstraint" destination="Wiy-PF-K44" id="AwX-cd-L9w"/>
-                <outlet property="tableViewHeader" destination="Qaz-AT-mt5" id="0cb-k2-EsE"/>
-                <outlet property="titleHeightConstraint" destination="5x3-hJ-xPj" id="j1S-Y0-fxx"/>
-                <outlet property="titleLabel" destination="RBF-5C-kaG" id="nc5-a6-g4H"/>
-                <outlet property="titleMessageConstraint" destination="QdA-p8-2WP" id="pQq-HZ-sal"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wnx-tt-WuN"/>
             </connections>
         </placeholder>
@@ -71,43 +63,6 @@
                 <constraint firstItem="ID7-nn-zGP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tWG-zZ-Thh"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </view>
-        <view contentMode="scaleToFill" id="Qaz-AT-mt5" userLabel="Table View Header">
-            <rect key="frame" x="0.0" y="0.0" width="270" height="75"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSAlertController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBF-5C-kaG">
-                    <rect key="frame" x="18" y="16" width="234" height="14"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="14" id="5x3-hJ-xPj"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is MSAlertController." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWw-n3-p1H">
-                    <rect key="frame" x="18" y="44" width="234" height="13"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="13" id="t8h-IB-J7C"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="RBF-5C-kaG" firstAttribute="top" secondItem="Qaz-AT-mt5" secondAttribute="top" constant="16" id="Hzj-7g-NfL"/>
-                <constraint firstItem="CWw-n3-p1H" firstAttribute="leading" secondItem="Qaz-AT-mt5" secondAttribute="leading" constant="18" id="J1O-pU-GYy"/>
-                <constraint firstItem="RBF-5C-kaG" firstAttribute="leading" secondItem="Qaz-AT-mt5" secondAttribute="leading" constant="18" id="JQx-BW-ano"/>
-                <constraint firstItem="CWw-n3-p1H" firstAttribute="top" secondItem="RBF-5C-kaG" secondAttribute="bottom" constant="14" id="QdA-p8-2WP"/>
-                <constraint firstAttribute="trailing" secondItem="CWw-n3-p1H" secondAttribute="trailing" constant="18" id="abC-hO-Si6"/>
-                <constraint firstAttribute="bottom" secondItem="CWw-n3-p1H" secondAttribute="bottom" constant="18" id="dU4-Xc-A1O"/>
-                <constraint firstAttribute="trailing" secondItem="RBF-5C-kaG" secondAttribute="trailing" constant="18" id="rJp-D6-rtr"/>
-            </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-49" y="560"/>
         </view>
     </objects>
 </document>

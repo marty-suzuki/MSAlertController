@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+FOUNDATION_EXTERN NSString *const kAlertActionChangeEnabledProperty;
+
 typedef NS_ENUM(NSInteger, MSAlertActionStyle) {
     MSAlertActionStyleDefault = 0,
     MSAlertActionStyleCancel,

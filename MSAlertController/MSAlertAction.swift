@@ -1,9 +1,9 @@
 //
 //  MSAlertAction.swift
-//  Pods
+//  MSAlertController
 //
 //  Created by 鈴木大貴 on 2016/01/23.
-//
+//  Copyright (c) 2016年 Taiki Suzuki. All rights reserved.
 //
 
 import UIKit
@@ -28,7 +28,7 @@ public class MSAlertAction: NSObject, NSCopying {
     public var enabled: Bool = true {
         didSet {
             if enabled != oldValue {
-                NSNotificationCenter.defaultCenter().postNotificationName("kAlertActionChangeEnabledProperty", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(kAlertActionChangeEnabledProperty, object: nil)
             }
         }
     }

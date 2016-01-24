@@ -8,176 +8,9 @@
 
 #import "MSAlertController.h"
 #import <QuartzCore/QuartzCore.h>
-#import <Accelerate/Accelerate.h>
 #import <MSAlertController/MSAlertController-Swift.h>
 #import <SABlurImageView/SABlurImageView-Swift.h>
-
-//#pragma mark - UIImage Category
-//@interface UIImage (Extension)
-//
-//+ (UIImage *)screenshot;
-//
-//@end
-//
-//@implementation UIImage (Extension)
-//
-//+ (UIImage *)screenshot {
-//    CGSize imageSize = [UIScreen mainScreen].bounds.size;
-//    
-//    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f && UIInterfaceOrientationIsLandscape(orientation)) {
-//        imageSize = CGSizeMake([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-//    }
-//    
-//    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 2.0f);
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
-//        CGContextSaveGState(context);
-//        CGContextTranslateCTM(context, window.center.x, window.center.y);
-//        CGContextConcatCTM(context, window.transform);
-//        CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y);
-//        
-//        if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f) {
-//            if (orientation == UIInterfaceOrientationLandscapeLeft) {
-//                CGContextRotateCTM(context, M_PI_2);
-//                CGContextTranslateCTM(context, 0, -imageSize.width);
-//            } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-//                CGContextRotateCTM(context, -M_PI_2);
-//                CGContextTranslateCTM(context, -imageSize.height, 0);
-//            } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-//                CGContextRotateCTM(context, M_PI);
-//                CGContextTranslateCTM(context, -imageSize.width, -imageSize.height);
-//            }
-//        }
-//        
-//        if ([window respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-//            [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
-//        } else {
-//            [window.layer renderInContext:context];
-//        }
-//        CGContextRestoreGState(context);
-//    }
-//    
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return image;
-//}
-//
-//@end
-
-
-#pragma mark - UITextField Category
-@interface UITextField (Inset)
-
-@end
-
-@implementation UITextField (Inset)
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-- (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 5.0f, 0.0f);
-}
-#pragma clang diagnostic pop
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-- (CGRect)editingRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 5.0f, 0.0f);
-}
-#pragma clang diagnostic pop
-
-@end
-
-
-#pragma mark - MSAlertAnimation Class
-@interface MSAlertAnimation : NSObject <UIViewControllerAnimatedTransitioning>
-
-@property (assign, nonatomic) BOOL isPresenting;
-
-@end
-
-@implementation MSAlertAnimation
-
-static CGFloat const kAnimationDuration = 0.25f;
-
-- (void)executePresentingAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
-    CGSize windowSize = [UIScreen mainScreen].bounds.size;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f) {
-        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-        if (UIInterfaceOrientationIsLandscape(orientation)) {
-            windowSize.width = [UIScreen mainScreen].bounds.size.height;
-            windowSize.height = [UIScreen mainScreen].bounds.size.width;
-        }
-    }
-    UIView *containerView = [transitionContext containerView];
-    
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    toViewController.view.frame = CGRectMake(0.0f, 0.0f, windowSize.width, windowSize.height);
-    toViewController.view.alpha = 0.0f;
-    if ([toViewController isKindOfClass:[MSAlertController class]]) {
-        MSAlertController* alertController = (MSAlertController *)toViewController;
-        if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
-            alertController.tableViewContainer.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
-        }
-    }
-    [containerView addSubview:toViewController.view];
-    
-    [UIView animateWithDuration:kAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(void) {
-        toViewController.view.alpha = 1.0f;
-        if ([toViewController isKindOfClass:[MSAlertController class]]) {
-            MSAlertController* alertController = (MSAlertController *)toViewController;
-            if (alertController.preferredStyle == MSAlertControllerStyleAlert) {
-                alertController.tableViewContainer.transform = CGAffineTransformIdentity;
-            }
-        }
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }
-    }];
-}
-
-- (void)executeDismissingAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
-    CGSize windowSize = [UIScreen mainScreen].bounds.size;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f) {
-        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-        if (UIInterfaceOrientationIsLandscape(orientation)) {
-            windowSize.width = [UIScreen mainScreen].bounds.size.height;
-            windowSize.height = [UIScreen mainScreen].bounds.size.width;
-        }
-    }
-    UIView *containerView = [transitionContext containerView];
-    
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    toViewController.view.frame = CGRectMake(0.0f, 0.0f, windowSize.width, windowSize.height);
-    [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
-    
-    [UIView animateWithDuration:kAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(void) {
-        fromViewController.view.alpha = 0.0f;
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }
-    }];
-}
-
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return kAnimationDuration;
-}
-
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    if(self.isPresenting){
-        [self executePresentingAnimation:transitionContext];
-    }
-    else{
-        [self executeDismissingAnimation:transitionContext];
-    }
-}
-
-@end
-
+#import <MisterFusion/MisterFusion-Swift.h>
 
 #pragma mark - MSAlertAction Class
 NSString *const kAlertActionChangeEnabledProperty = @"kAlertActionChangeEnabledProperty";
@@ -199,31 +32,30 @@ NSString *const kAlertActionChangeEnabledProperty = @"kAlertActionChangeEnabledP
 @property (weak, nonatomic, readwrite) IBOutlet UIView *tableViewContainer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
 // Views on Table View
-@property (strong, nonatomic) IBOutlet UIView *tableViewHeader;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-
-
-@property (strong, nonatomic) MSAlertHeaderView *alertHeaderView;
+@property (weak, nonatomic) UIView *tableViewHeader;
+@property (weak, nonatomic) UILabel *titleLabel;
+@property (weak, nonatomic) UILabel *messageLabel;
 
 // Constraints of Table View Header
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *superviewTitleConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleMessageConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *superviewTitleConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *titleHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *titleMessageConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *messageHeightConstraint;
+
 // Only use when Alert Style
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTextFieldConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldSuperviewConstraint;
+@property (strong, nonatomic) MSAlertHeaderView *__nullable alertHeaderView;
+@property (weak, nonatomic) NSLayoutConstraint *messageTextFieldConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *textFieldHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *textFieldSuperviewConstraint;
+
 // Only use when Action Sheet Style
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageSuperviewConstraint;
+@property (strong, nonatomic) MSActionSheetHeaderView *__nullable actionSheetHeaderView;
+@property (weak, nonatomic) NSLayoutConstraint *messageSuperviewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContainerHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContarinerSuperviewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContainerWidthConstraint;
-
 
 // Constraints of Table View
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
@@ -286,10 +118,126 @@ static CGFloat const kTextFieldWidth = 234.0f;
         self.separatorColor = [UIColor colorWithRed:231.0f/255.0f green:231.0f/255.0f blue:233.0f/255.0f alpha:1.0f];
         
         disabledColor = [UIColor colorWithRed:131.0f/255.0f green:131.0f/255.0f blue:131.0f/255.0f alpha:1.0f];
+        
+        switch (preferredStyle) {
+            case MSAlertControllerStyleActionSheet:
+                self.actionSheetHeaderView = [[MSActionSheetHeaderView alloc] init];
+                break;
+            case MSAlertControllerStyleAlert:
+                self.alertHeaderView = [[MSAlertHeaderView alloc] init];
+                break;
+        }
     }
     return self;
 }
 
+#pragma mark - Getter
+- (UILabel *)titleLabel {
+    UILabel *titleLabel = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            titleLabel = self.actionSheetHeaderView.titleLabel;
+            break;
+        case MSAlertControllerStyleAlert:
+            titleLabel = self.alertHeaderView.titleLabel;
+            break;
+    }
+    return titleLabel;
+}
+
+- (UILabel *)messageLabel {
+    UILabel *messageLabel = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            messageLabel = self.actionSheetHeaderView.messageLabel;
+            break;
+        case MSAlertControllerStyleAlert:
+            messageLabel = self.alertHeaderView.messageLabel;
+            break;
+    }
+    return messageLabel;
+}
+
+- (UIView *)tableViewHeader {
+    UIView *tableViewHeader = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            tableViewHeader = self.actionSheetHeaderView;
+            break;
+        case MSAlertControllerStyleAlert:
+            tableViewHeader = self.alertHeaderView;
+            break;
+    }
+    return tableViewHeader;
+}
+
+- (NSLayoutConstraint *)superviewTitleConstraint {
+    NSLayoutConstraint *superviewTitleConstraint = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            superviewTitleConstraint = self.actionSheetHeaderView.superviewTitleConstraint;
+            break;
+        case MSAlertControllerStyleAlert:
+            superviewTitleConstraint = self.alertHeaderView.superviewTitleConstraint;
+            break;
+    }
+    return superviewTitleConstraint;
+}
+- (NSLayoutConstraint *)titleHeightConstraint {
+    NSLayoutConstraint *titleHeightConstraint = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            titleHeightConstraint = self.actionSheetHeaderView.titleHeightConstraint;
+            break;
+        case MSAlertControllerStyleAlert:
+            titleHeightConstraint = self.alertHeaderView.titleHeightConstraint;
+            break;
+    }
+    return titleHeightConstraint;
+}
+
+- (NSLayoutConstraint *)titleMessageConstraint {
+    NSLayoutConstraint *titleMessageConstraint = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            titleMessageConstraint = self.actionSheetHeaderView.titleMessageConstraint;
+            break;
+        case MSAlertControllerStyleAlert:
+            titleMessageConstraint = self.alertHeaderView.titleMessageConstraint;
+            break;
+    }
+    return titleMessageConstraint;
+}
+
+- (NSLayoutConstraint *)messageHeightConstraint {
+    NSLayoutConstraint *messageHeightConstraint = nil;
+    switch (self.preferredStyle) {
+        case MSAlertControllerStyleActionSheet:
+            messageHeightConstraint = self.actionSheetHeaderView.messageHeightConstraint;
+            break;
+        case MSAlertControllerStyleAlert:
+            messageHeightConstraint = self.alertHeaderView.messageHeightConstraint;
+            break;
+    }
+    return messageHeightConstraint;
+}
+
+- (NSLayoutConstraint *)messageSuperviewConstraint {
+    return self.actionSheetHeaderView.messageSuperviewConstraint;
+}
+
+- (NSLayoutConstraint *)messageTextFieldConstraint {
+    return self.alertHeaderView.messageTextFieldConstraint;
+}
+- (NSLayoutConstraint *)textFieldHeightConstraint {
+    return self.alertHeaderView.textFieldHeightConstraint;
+}
+
+- (NSLayoutConstraint *)textFieldSuperviewConstraint {
+    return  self.alertHeaderView.textFieldSuperviewConstraint;
+}
+
+#pragma mark - Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -399,11 +347,12 @@ static CGFloat const kTextFieldWidth = 234.0f;
     } else {
         headerHeight += self.messageSuperviewConstraint.constant;
     }
-    
+
     CGRect headerFrame = self.tableViewHeader.frame;
     headerFrame.size.height = headerHeight;
     self.tableViewHeader.frame = headerFrame;
-    
+
+    [self.tableViewHeader layoutIfNeeded];
     
     if (self.preferredStyle == MSAlertControllerStyleAlert) {
         CGFloat tableViewHeight = self.actions.count * 44.0f;
@@ -430,40 +379,14 @@ static CGFloat const kTextFieldWidth = 234.0f;
             }
             self.cancelButton.titleLabel.font = cancelAction.font;
             [self.cancelButton addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-            [self.tableViewContainer addSubview:self.cancelButton];
             
-            self.cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
-            [self.cancelButton addConstraint:[NSLayoutConstraint constraintWithItem:self.cancelButton
-                                                              attribute:NSLayoutAttributeHeight
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:nil
-                                                              attribute:NSLayoutAttributeHeight
-                                                             multiplier:1.0
-                                                               constant:44.0f]];
             
-            [self.tableViewContainer addConstraint:[NSLayoutConstraint constraintWithItem:self.cancelButton
-                                                                  attribute:NSLayoutAttributeLeft
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.tableViewContainer
-                                                                  attribute:NSLayoutAttributeLeft
-                                                                 multiplier:1.0
-                                                                   constant:0]];
-            
-            [self.tableViewContainer addConstraint:[NSLayoutConstraint constraintWithItem:self.cancelButton
-                                                                                attribute:NSLayoutAttributeRight
-                                                                                relatedBy:NSLayoutRelationEqual
-                                                                                   toItem:self.tableViewContainer
-                                                                                attribute:NSLayoutAttributeRight
-                                                                               multiplier:1.0
-                                                                                 constant:0]];
-            
-            [self.tableViewContainer addConstraint:[NSLayoutConstraint constraintWithItem:self.cancelButton
-                                                                                attribute:NSLayoutAttributeTop
-                                                                                relatedBy:NSLayoutRelationEqual
-                                                                                   toItem:self.tableView
-                                                                                attribute:NSLayoutAttributeBottom
-                                                                               multiplier:1.0
-                                                                                 constant:8.0f]];
+            [self.tableViewContainer addLayoutSubview:self.cancelButton andConstraints:@[
+                    self.cancelButton.Height.NotRelatedConstant(44.0f),
+                    self.cancelButton.Left,
+                    self.cancelButton.Right,
+                    self.cancelButton.Top.Equal(self.tableView.Bottom).Constant(8.0f)
+            ]];
         }
         
         self.tableViewContainerHeightConstraint.constant = tableViewHeight + headerHeight + self.tableViewBottomSpaceConstraint.constant - 0.5f;
@@ -472,40 +395,13 @@ static CGFloat const kTextFieldWidth = 234.0f;
     
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = self.separatorColor;
-    [self.tableViewHeader addSubview:line];
     
-    line.translatesAutoresizingMaskIntoConstraints = NO;
-    [line addConstraint:[NSLayoutConstraint constraintWithItem:line
-                                                     attribute:NSLayoutAttributeHeight
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:nil
-                                                     attribute:NSLayoutAttributeHeight
-                                                    multiplier:1.0
-                                                      constant:0.5f]];
-    
-    [self.tableViewHeader addConstraint:[NSLayoutConstraint constraintWithItem:line
-                                                                        attribute:NSLayoutAttributeLeft
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:self.tableViewHeader
-                                                                        attribute:NSLayoutAttributeLeft
-                                                                       multiplier:1.0
-                                                                         constant:0]];
-    
-    [self.tableViewHeader addConstraint:[NSLayoutConstraint constraintWithItem:line
-                                                                        attribute:NSLayoutAttributeRight
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:self.tableViewHeader
-                                                                        attribute:NSLayoutAttributeRight
-                                                                       multiplier:1.0
-                                                                         constant:0]];
-    
-    [self.tableViewHeader addConstraint:[NSLayoutConstraint constraintWithItem:line
-                                                                        attribute:NSLayoutAttributeBottom
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:self.tableViewHeader
-                                                                        attribute:NSLayoutAttributeBottom
-                                                                       multiplier:1.0
-                                                                         constant:0]];
+    [self.tableViewHeader addLayoutSubview:line andConstraints:@[
+        line.Height.NotRelatedConstant(0.5f),
+        line.Left,
+        line.Right,
+        line.Bottom
+    ]];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -517,6 +413,8 @@ static CGFloat const kTextFieldWidth = 234.0f;
         UIImage *highlightedImage = [UIImage imageWithColor:[UIColor colorWithRed:217.0f/255.0f green:217.0f/255.0f blue:217.0f/255.0f alpha:1.0f]];
         [self.cancelButton setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
     }
+    
+    [self.view layoutIfNeeded];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -592,7 +490,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
     }
 
     NSMutableArray *textFields = self.textFields.mutableCopy;
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kTextFieldWidth, kTextFieldHeight)];
+    MSTextField *textField = [[MSTextField alloc] initWithFrame:CGRectMake(0, 0, kTextFieldWidth, kTextFieldHeight)];
     textField.borderStyle = UITextBorderStyleNone;
     textField.layer.borderWidth = 0.5f;
     textField.layer.borderColor = [UIColor grayColor].CGColor;
@@ -690,6 +588,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
 
 #pragma mark - UITableViewDelegate Methods
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    [self.tableViewHeader layoutIfNeeded];
     return CGRectGetHeight(self.tableViewHeader.frame);
 }
 
