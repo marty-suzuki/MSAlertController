@@ -16,50 +16,9 @@
 NSString *const kAlertActionChangeEnabledProperty = @"kAlertActionChangeEnabledProperty";
 
 #pragma mark - MSAlertController Class
-@interface MSAlertController () <UIViewControllerTransitioningDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface MSAlertController ()  {
     UIColor *disabledColor;
 }
-
-@property (assign, nonatomic) MSAlertControllerStyle preferredStyle;
-@property (copy, nonatomic) NSArray *actions;
-@property (copy, nonatomic) NSArray *textFields;
-@property (strong, nonatomic) MSAlertAnimation *animation;
-@property (strong, nonatomic) UIButton *cancelButton;
-
-// Views on Alert Controller
-@property (weak, nonatomic) IBOutlet SABlurImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIView *backgroundView;
-@property (weak, nonatomic, readwrite) IBOutlet UIView *tableViewContainer;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-// Views on Table View
-@property (weak, nonatomic) UIView *tableViewHeader;
-@property (weak, nonatomic) UILabel *titleLabel;
-@property (weak, nonatomic) UILabel *messageLabel;
-
-// Constraints of Table View Header
-@property (weak, nonatomic) NSLayoutConstraint *superviewTitleConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *titleHeightConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *titleMessageConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *messageHeightConstraint;
-
-// Only use when Alert Style
-@property (strong, nonatomic) MSAlertHeaderView *__nullable alertHeaderView;
-@property (weak, nonatomic) NSLayoutConstraint *messageTextFieldConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *textFieldHeightConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *textFieldSuperviewConstraint;
-
-// Only use when Action Sheet Style
-@property (strong, nonatomic) MSActionSheetHeaderView *__nullable actionSheetHeaderView;
-@property (weak, nonatomic) NSLayoutConstraint *messageSuperviewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContainerHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContarinerSuperviewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomSpaceConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContainerWidthConstraint;
-
-// Constraints of Table View
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewContainerBottomSpaceConstraint;
 
 @end
 
@@ -73,7 +32,7 @@ static CGFloat const kTextFieldHeight = 20.0f;
 static CGFloat const kTextFieldWidth = 234.0f;
 
 + (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(MSAlertControllerStyle)preferredStyle {
-    return [[[self class] alloc] initWithTitle:title message:message preferredStyle:preferredStyle];
+    return [[MSAlertController alloc] initWithTitle:title message:message preferredStyle:preferredStyle];
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(MSAlertControllerStyle)preferredStyle {
@@ -271,8 +230,6 @@ static CGFloat const kTextFieldWidth = 234.0f;
     }
     self.tableView.scrollEnabled = NO;
     self.tableViewContainer.backgroundColor = [UIColor clearColor];
-    
-    self.alertHeaderView = [[MSAlertHeaderView alloc] init];
 }
 
 - (void)dealloc {
@@ -305,6 +262,7 @@ static CGFloat const kTextFieldWidth = 234.0f;
     self.alertHeaderView.textFieldContentView.backgroundColor = [UIColor whiteColor];
     [self.textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger index, BOOL *stop) {
         CGRect textFieldFrame = textField.frame;
+        textFieldFrame.size = CGSizeMake(kTextFieldWidth, kTextFieldHeight);
         textFieldFrame.origin.y = index * kTextFieldHeight;
         textField.frame = textFieldFrame;
         [self.alertHeaderView.textFieldContentView addSubview:textField];
@@ -480,140 +438,6 @@ static CGFloat const kTextFieldWidth = 234.0f;
         action.handler(action);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - MSAlertController Public Methods
-- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *))configurationHandler {
-    if (self.preferredStyle == MSAlertControllerStyleActionSheet) {
-        [NSException raise:@"NSInternalInconsistencyException" format:@"Text fields can only be added to an alert controller of style MSAlertControllerStyleAlert"];
-        return;
-    }
-
-    NSMutableArray *textFields = self.textFields.mutableCopy;
-    MSTextField *textField = [[MSTextField alloc] initWithFrame:CGRectMake(0, 0, kTextFieldWidth, kTextFieldHeight)];
-    textField.borderStyle = UITextBorderStyleNone;
-    textField.layer.borderWidth = 0.5f;
-    textField.layer.borderColor = [UIColor grayColor].CGColor;
-    textField.delegate = self;
-    if (configurationHandler) {
-        configurationHandler(textField);
-    }
-    [textFields addObject:textField];
-    self.textFields = textFields.copy;
-}
-
-- (void)addAction:(MSAlertAction *)action {
-    NSMutableArray *actions = self.actions.mutableCopy;
-    if (action.style == MSAlertActionStyleCancel) {
-        for (MSAlertAction *aa in actions) {
-            if (aa.style == MSAlertActionStyleCancel) {
-                [NSException raise:@"NSInternalInconsistencyException" format:@"MSAlertController can only have one action with a style of MSAlertActionStyleCancel"];
-                return;
-            }
-        }
-    }
-    
-    [actions addObject:action];
-    [actions enumerateObjectsUsingBlock:^(MSAlertAction *aa, NSUInteger index, BOOL *stop) {
-        NSUInteger lastIndex = actions.count - 1;
-        if (aa.style == MSAlertActionStyleCancel && lastIndex != index) {
-            [actions exchangeObjectAtIndex:index withObjectAtIndex:lastIndex];
-            *stop = YES;
-            return;
-        }
-    }];
-    self.actions = actions.copy;
-}
-
-#pragma mark - UIViewControllerTransitioningDelegate Methods
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    self.animation.isPresenting = YES;
-    return self.animation;
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.animation.isPresenting = NO;
-    return self.animation;
-}
-
-#pragma mark - UITableViewDataSource Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.preferredStyle == MSAlertControllerStyleActionSheet && [self cancelAction] != nil) {
-        return self.actions.count - 1;
-    }
-    return self.actions.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
-    
-    MSAlertAction *action = [self.actions objectAtIndex:indexPath.row];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, cell.frame.size.height)];
-    titleLabel.text = action.title;
-    titleLabel.textColor = action.titleColor;
-    titleLabel.font = action.font;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    [cell.contentView addSubview:titleLabel];
-    
-    titleLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
-    
-    cell.separatorInset = UIEdgeInsetsZero;
-    if ([cell respondsToSelector:@selector(layoutMargins)]) {
-        cell.layoutMargins = UIEdgeInsetsZero;
-    }
-    
-    cell.userInteractionEnabled = action.enabled;
-    if (!action.enabled) {
-        titleLabel.textColor = disabledColor;
-    }
-    
-    if (action.normalColor) {
-        cell.backgroundColor = action.normalColor;
-    } else {
-        cell.backgroundColor = self.alertBackgroundColor;
-    }
-    
-    if (action.highlightedColor) {
-        UIView *selectedBackgroundView = [[UIView alloc] init];
-        selectedBackgroundView.backgroundColor = action.highlightedColor;
-        cell.selectedBackgroundView = selectedBackgroundView;
-    }
-        
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-#pragma mark - UITableViewDelegate Methods
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    [self.tableViewHeader layoutIfNeeded];
-    return CGRectGetHeight(self.tableViewHeader.frame);
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    self.tableViewHeader.backgroundColor = self.alertBackgroundColor;
-    return self.tableViewHeader;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    MSAlertAction *action = [self.actions objectAtIndex:indexPath.row];
-    if ([action isKindOfClass:[MSAlertAction class]] && action.handler) {
-        action.handler(action);
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - UITextFieldDelegate Methods
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ([textField canResignFirstResponder]) {
-        [textField resignFirstResponder];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    
-    return YES;
 }
 
 @end

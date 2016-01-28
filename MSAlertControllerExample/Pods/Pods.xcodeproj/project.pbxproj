@@ -19,6 +19,7 @@
 		370C55831C5473D700D9369A /* MSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C55821C5473D700D9369A /* MSTextField.swift */; };
 		370C55851C54763200D9369A /* MSAlertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C55841C54763200D9369A /* MSAlertAnimation.swift */; };
 		370C55871C547B0F00D9369A /* MSActionSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C55861C547B0F00D9369A /* MSActionSheetHeaderView.swift */; };
+		370C558A1C5A7D5500D9369A /* MSAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C55891C5A7D5500D9369A /* MSAlertController.swift */; };
 		4A3651698C02D12424EE6673CC3E4BFF /* SACollectionViewVerticalScalingFlowLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 774347EBC8258536B7C561D099F2DA67 /* SACollectionViewVerticalScalingFlowLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53EE8DE41682CE1D265BE8B60ED69A11 /* Array+MisterFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBD69E9448615F860353A122A6BC32 /* Array+MisterFusion.swift */; };
 		617D6955632B54BCC4B81D5A66B006BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF37060673075655E30B45E2FD3BF93 /* Foundation.framework */; };
@@ -116,6 +117,7 @@
 		370C55821C5473D700D9369A /* MSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTextField.swift; sourceTree = "<group>"; };
 		370C55841C54763200D9369A /* MSAlertAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSAlertAnimation.swift; sourceTree = "<group>"; };
 		370C55861C547B0F00D9369A /* MSActionSheetHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSActionSheetHeaderView.swift; sourceTree = "<group>"; };
+		370C55891C5A7D5500D9369A /* MSAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSAlertController.swift; sourceTree = "<group>"; };
 		39E3B229E9469862023551DA27BE5692 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4057E7F6279E865C4BF1FCCFD1B335BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B21F1DAFBAA8B01C82BAECD5335AB7 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,6 +440,7 @@
 			children = (
 				7083EEA001684E73373C980EAB75DBD4 /* MSAlertController.h */,
 				991E1AC65D8F223723695DD733567DBC /* MSAlertController.m */,
+				370C55891C5A7D5500D9369A /* MSAlertController.swift */,
 				F880143968E85542D804661950EDB25B /* MSAlertHeaderView.swift */,
 				370C55861C547B0F00D9369A /* MSActionSheetHeaderView.swift */,
 				01A3D2D473E4AEE5204526CFBE29B03A /* UIImage+Extensions.swift */,
@@ -664,6 +667,7 @@
 				370C55851C54763200D9369A /* MSAlertAnimation.swift in Sources */,
 				62BB02E42268E42997C4D7A66375D750 /* MSAlertController-dummy.m in Sources */,
 				370C55811C53361E00D9369A /* MSAlertAction.swift in Sources */,
+				370C558A1C5A7D5500D9369A /* MSAlertController.swift in Sources */,
 				370C55871C547B0F00D9369A /* MSActionSheetHeaderView.swift in Sources */,
 				7FFD06319549D731351136BFEAF737CB /* MSAlertController.m in Sources */,
 				1680DB139DCBAD7CBB489A8A92CD084E /* MSAlertHeaderView.swift in Sources */,
@@ -827,6 +831,7 @@
 				PRODUCT_NAME = MSAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -913,6 +918,7 @@
 				PRODUCT_NAME = MSAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
